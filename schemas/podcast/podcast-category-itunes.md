@@ -8,9 +8,9 @@ Table of Content
   - [Main Class](#main-class)
   - [Internal Classes](#internal-classes)
 - [Versions](#versions)
-  - [v0 JSON](#v0-json)
+  - [v1 JSON](#v1-json)
 - [Properties](#properties)
-  - [v0](#v0)
+  - [v1](#v1)
     - [Podcast category](#podcast-category)
   - [Possible Future Properties](#possible-future-properties)
 <!-- TOC END -->
@@ -25,7 +25,7 @@ In order of appearance:
 
 # Versions
 
-## v0 JSON
+## v1 JSON
 
 ```json
 {
@@ -45,7 +45,7 @@ In order of appearance:
 
 # Properties
 
-## v0
+## v1
 
 ### Podcast category
 ```json

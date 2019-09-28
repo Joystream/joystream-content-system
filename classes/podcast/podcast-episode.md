@@ -8,7 +8,7 @@ Table of Content
   - [Explanation](#explanation)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v0](#v0)
+    - [v1](#v1)
 <!-- TOC END -->
 
 ## ClassID
@@ -28,7 +28,7 @@ Podcast episodes are entities tied to a specific [podcast](#podcast). These must
 ## Properties
 List of all properties available for this class, for each [schema](/joystream-content-system/schemas/podcast/podcast-episode.md).
 
-### v0
+### v1
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
 |-------------------------|--------------------------------------------------|:------:|:-:|---------|

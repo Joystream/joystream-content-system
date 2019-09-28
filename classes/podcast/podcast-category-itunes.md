@@ -27,7 +27,7 @@ Categories as defined for podcasts published in itunes.
 ## Properties
 List of all properties available for this class, for each [schema](/joystream-content-system/schemas/podcast/podcast-category-itunes.md).
 
-### v0
+### v1
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
 |-------------------------|--------------------------------------------------|:------:|:-:|---------|

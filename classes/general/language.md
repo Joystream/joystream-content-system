@@ -5,7 +5,7 @@ Table of Content
 ----------------
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [Properties](#properties)
-    - [v0](#v0)
+    - [v1](#v1)
 <!-- TOC END -->
 
 #### ClassID
@@ -18,7 +18,7 @@ To enforce a specific standard of tagging languages for all content types. Schem
 ```json
 {
   "name": "Language",
-  "description": "Language code following the ISO 639-1 two letter standard, eg. 'en' for English. Also allows subtags, eg 'en-US' for US english.",
+  "description": "Language code following the ISO 639-1 two letter standard, eg. 'en' for English. Also allows subtags, eg 'en-US' for US English.",
 }
 ```
 
@@ -26,8 +26,9 @@ To enforce a specific standard of tagging languages for all content types. Schem
 ## Properties
 List of all properties available for this class, for each [schema](/joystream-content-system/schemas/general/language.md).
 
-### v0
+### v1
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
 |-------------------------|--------------------------------------------------|:------:|:-:|---------|
 |`Language`               |`Text`                                            | `true` | y |         |
+|`Language subtag`        |`Text`                                            |   -    | y |         |

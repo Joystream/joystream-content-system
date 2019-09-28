@@ -8,7 +8,7 @@ Table of Content
   - [Explanation](#explanation)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v0](#v0)
+    - [v1](#v1)
 <!-- TOC END -->
 
 ## ClassID
@@ -28,7 +28,7 @@ Enforces all content to include an entry from the Data Directory.
 ## Properties
 List of all properties available for this class, for each [schema](/joystream-content-system/schemas/general/data-directory-object.md).
 
-### v0
+### v1
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
 |-------------------------|--------------------------------------------------|:------:|:-:|---------|
