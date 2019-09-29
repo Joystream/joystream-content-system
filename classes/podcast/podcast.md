@@ -30,18 +30,18 @@ List of all properties available for this class, for each [schema](/joystream-co
 
 ### v1
 
-|     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
-|-------------------------|--------------------------------------------------|:------:|:-:|---------|
-|`Title`                  |`Text`                                            | `true` | y |         |
-|`Description`            |`Text`                                            | `true` | y |         |
-|`Image`                  |`Text`                                            | `true` | y |         |
-|`Language`               |[Internal](../general/language.md)                | `true` | y |         |
-|`Podcast episodes`       |[InternalVec](podcast-episodes.md)                |   -    | y |         |
-|`Link`                   |`Text`                                            |   -    | y |         |
-|`Author`                 |`Text`                                            |   -    | y |         |
-|`Owner name`             |`Text`                                            |   -    | y |         |
-|`Owner email`            |`Text`                                            |   -    | y |         |
-|`Subtitle`               |`Text`                                            |   -    | y |         |
-|`Podcast category`       |[InternalVec](podcast-categories-itunes.md)       |   -    | y |         |
-|`Explicit`               |`bool`                                            |   -    | y |         |
-|`Subtitle`               |`Text`                                            |   -    | y |         |
+|     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
+|-------------------------|--------------------------------------------------|:------:|:-:|----------|
+|`Title`                  |`Text`                                            | `true` | y |`m,cc,co` |
+|`Description`            |`Text`                                            | `true` | y |          |
+|`Image`                  |`Text`                                            | `true` | y |          |
+|`Language`               |[Internal](../general/language.md)                | `true` | y |          |
+|`Podcast episodes`       |[InternalVec](podcast-episodes.md)                |   -    | y |          |
+|`Link`                   |`Text`                                            |   -    | y |          |
+|`Author`                 |`Text`                                            |   -    | y |          |
+|`Owner name`             |`Text`                                            |   -    | y |          |
+|`Owner email`            |`Text`                                            |   -    | y |          |
+|`Subtitle`               |`Text`                                            |   -    | y |          |
+|`Podcast category`       |[InternalVec](podcast-categories-itunes.md)       |   -    | y |          |
+|`Explicit`               |`bool`                                            |   -    | y |          |
+|`Subtitle`               |`Text`                                            |   -    | y |          |

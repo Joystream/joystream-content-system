@@ -21,7 +21,7 @@ Table of Content
 # Classes
 
 ## Main Class
-- [podcast](/joystream-content-system/classes/podcast/podcast-episode.md)
+- [podcast-episode](/joystream-content-system/classes/podcast/podcast-episode.md)
 
 ## Internal Classes
 In order of appearance:

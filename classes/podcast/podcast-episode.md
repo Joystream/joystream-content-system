@@ -30,15 +30,15 @@ List of all properties available for this class, for each [schema](/joystream-co
 
 ### v1
 
-|     Property Name       | Property Type (links to internal class)          |Required|New|  Rules  |
-|-------------------------|--------------------------------------------------|:------:|:-:|---------|
-|`Title`                  |`Text`                                            | `true` | y |         |
-|`Description`            |`Text`                                            | `true` | y |         |
-|`Image`                  |`Text`                                            | `true` | y |         |
-|`Language`               |[Internal](../general/language.md)                | `true` | y |         |
-|`Object`                 |[Internal](../general/data-directory-object.md)   |   -    | y |         |
-|`Author`                 |`Text`                                            |   -    | y |         |
-|`Subtitle`               |`Text`                                            |   -    | y |         |
-|`Season`                 |`Uint16`                                          |   -    | y |         |
-|`Episode`                |`Uint16`                                          |   -    | y |         |
-|`Subtitle`               |`Text`                                            |   -    | y |         |
+|     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
+|-------------------------|--------------------------------------------------|:------:|:-:|----------|
+|`Title`                  |`Text`                                            | `true` | y |`m,cc,co` |
+|`Description`            |`Text`                                            | `true` | y |          |
+|`Image`                  |`Text`                                            | `true` | y |          |
+|`Language`               |[Internal](../general/language.md)                | `true` | y |          |
+|`Object`                 |[Internal](../general/data-directory-object.md)   |   -    | y |          |
+|`Author`                 |`Text`                                            |   -    | y |          |
+|`Subtitle`               |`Text`                                            |   -    | y |          |
+|`Season`                 |`Uint16`                                          |   -    | y |          |
+|`Episode`                |`Uint16`                                          |   -    | y |          |
+|`Subtitle`               |`Text`                                            |   -    | y |          |

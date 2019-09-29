@@ -18,7 +18,7 @@ Table of Content
 # Classes
 
 ## Main Class
-- [podcast](/joystream-content-system/classes/podcast/podcast-category-itunes.md)
+- [podcast-category-itunes](/joystream-content-system/classes/podcast/podcast-category-itunes.md)
 
 ## Internal Classes
 In order of appearance:

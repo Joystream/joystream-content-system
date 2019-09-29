@@ -13,6 +13,7 @@ Table of Content
   - [v1](#v1)
     - [Object](#object)
   - [Possible Future Properties](#possible-future-properties)
+    - [Country code](#country-code)
 <!-- TOC END -->
 
 # Classes
@@ -39,12 +40,6 @@ In order of appearance:
       "required": true,
       "maxTextLength": 2
     },
-    {
-      "name": "Language subtag",
-      "description": "Language code following the ISO 639-1 two letter standard, with subtags, eg. 'en-US' for US English, for further clarification.",
-      "type": "Text",
-      "maxTextLength": 5
-    },
   ]
 }
 ```
@@ -57,7 +52,7 @@ In order of appearance:
 ```json
 {
   "name": "Language",
-  "description": "Language code following the ISO 639-1 two letter standard, eg. 'en' for English. Also allows subtags, eg 'en-US' for US english.",
+  "description": "Language code following the ISO 639-1 two letter standard, eg. 'en' for English.",
   "type": "Text",
   "required": true,
   "maxTextLength": 5
@@ -65,3 +60,5 @@ In order of appearance:
 ```
 
 ## Possible Future Properties
+
+### Country code

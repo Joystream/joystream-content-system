@@ -13,6 +13,7 @@ Table of Content
   - [v1](#v1)
     - [Object](#object)
   - [Possible Future Properties](#possible-future-properties)
+    - [External](#external)
     - [Link](#link)
 <!-- TOC END -->
 
@@ -34,8 +35,8 @@ In order of appearance:
   // Id of data-directory-object class
   "newProperties": [
     {
-      "name": "Object",
-      "description": "Object in the data directory",
+      "name": "ContentId",
+      "description": "ContentId of object in the data directory",
       "type": "Text",
       "required": true,
       "maxTextLength": 68
@@ -51,14 +52,16 @@ In order of appearance:
 ### Object
 ```json
 {
-  "name": "Object",
-  "description": "Object in the data directory",
+  "name": "ContentId",
+  "description": "ContentId of object in the data directory",
   "type": "Text",
   "required": true,
-  "maxTextLength": 255
+  "maxTextLength": 68
 },
 ```
 
 ## Possible Future Properties
+
+### External
 
 ### Link

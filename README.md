@@ -6,6 +6,7 @@ Table of Contents
   - [Get started](#get-started)
     - [Resources, examples and templates](#resources-examples-and-templates)
 - [Classes](#classes)
+  - [Rules](#rules)
   - [General](#general)
   - [Type Specific](#type-specific)
     - [ebooks](#ebooks)
@@ -26,7 +27,27 @@ The Joystream content system...
 Go here.
 
 # Classes
-The table below contains an overview of all classes available in the Joystream Content System.
+The table below contains an overview of all classes available in the Joystream Content System. Click the link under the "Information" for a more verbose explanation of the class.
+
+## Rules
+
+The "Rules" column for each `property` should be read as follows:
+- `r` means `Root` only
+- `cl` means `Content Curator Group Lead`
+- `c` means all `Content Curators`
+- `co` means all `content owners`
+- `ch` means all `channel owners`
+- `cc` means all `channel contributors`
+- `m` means all `Members`
+
+Note that this hierarchical structure always includes the group(s) above unless noted otherwise.
+
+By order of appearance, the "tags" refers to the following:
+- Who can create a new `entity` under this `property`
+- Who can use this an `entity` under this `property`
+- Who can modify or delete an `entity` under this `property`
+
+Also note that these are the default settings. In some circumstances, new permissions can be set.
 
 ## General
 
