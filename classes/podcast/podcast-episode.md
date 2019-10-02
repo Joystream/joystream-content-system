@@ -9,6 +9,7 @@ Table of Content
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
     - [v0](#v0)
+  - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
@@ -42,3 +43,7 @@ List of all properties available for this class, for each [schema](/schemas/podc
 |`Season`                 |`Uint16`                                          |   -    | y |          |
 |`Episode`                |`Uint16`                                          |   -    | y |          |
 |`Subtitle`               |`Text`                                            |   -    | y |          |
+
+## Entities
+
+How to create new entities can be found [here](/entities/podcast/podcast-episode.md).

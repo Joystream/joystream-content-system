@@ -10,6 +10,7 @@ Table of Content
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
     - [v0](#v0)
+  - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
@@ -48,3 +49,7 @@ List of all properties available for this class, for each [schema](/schemas/gene
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|
 |`Language`               |`Text`                                            | `true` | y |`cl,m,c`  |
+
+## Entities
+
+How to create new entities can be found [here](/entities/general/language.md). As this is a protected `class`, a list of all available entities can be found as well.

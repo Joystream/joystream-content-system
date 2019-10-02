@@ -9,6 +9,7 @@ Table of Content
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
     - [v0](#v0)
+  - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
@@ -45,3 +46,7 @@ List of all properties available for this class, for each [schema](/schemas/podc
 |`Podcast category`       |[`InternalVec`](podcast-categories-itunes.md)     |   -    | y |          |
 |`Explicit`               |`bool`                                            |   -    | y |          |
 |`Subtitle`               |`Text`                                            |   -    | y |          |
+
+## Entities
+
+How to create new entities can be found [here](/entities/podcast/podcast.md).
