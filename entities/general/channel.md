@@ -12,15 +12,15 @@ Table of Content
 
 ## Class and Schema
 
-- [class](/joystream-content-system/classes/general/channel.md)
-- Class Id : `NA`
-- [schema](/joystream-content-system/schemas/general/channel.md)
-- Supported schema Id(s): `1`
+- [class](/classes/general/channel.md)
+- Class Id : `3`
+- [schema](/schemas/general/channel.md)
+- Supported schema Id(s): `0`
 
 ## CreateEntity JSON-schema
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of channel class
 }
 ```
@@ -35,7 +35,7 @@ Example below for `entityId 1`
 ```json
 {
   "entityId": 1,
-  "schemaId": 1,
+  "schemaId": 0,
      "propertyValues": [
     {
       "name": "Channel Name",

@@ -1,5 +1,5 @@
-Channel Class
-=============
+Channel - Class
+===============
 
 Table of Content
 ----------------
@@ -9,11 +9,11 @@ Table of Content
     - [Protection](#protection)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v1](#v1)
+    - [v0](#v0)
 <!-- TOC END -->
 
 ## ClassID
-NA
+`3`
 
 ## Explanation
 Allows members to create channels under which they can publish content with specific ownership, set rules for contributors, and collect revenue.
@@ -31,16 +31,16 @@ In the current implementation, there are no restrictions as to what can be passe
 ```
 
 ## Properties
-List of all properties available for this class, for each [schema](/joystream-content-system/schemas/general/channel.md).
+List of all properties available for this class, for each [schema](/schemas/general/channel.md).
 
-### v1
+### v0
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|
 |`Channel name`           |`Text`                                            | `true` | y |`m,cc,co` |
 |`Description`            |`Text`                                            | `true` | y |          |
 |`Image`                  |`Text`                                            | `true` | y |          |
-|`Language`               |[Internal](../general/language.md)                | `true` | y |          |
+|`Language`               |[`Internal`](../general/language.md)              | `true` | y |          |
 |`Link`                   |`Text`                                            |   -    | y |          |
 |`Owner name`             |`Text`                                            |   -    | y |          |
 |`Owner email`            |`Text`                                            |   -    | y |          |

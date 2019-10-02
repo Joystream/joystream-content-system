@@ -1,5 +1,5 @@
-Podcast Episode JSON Schemas
-============================
+Podcast Episode - Class Schemas
+===============================
 
 Table of Content
 ----------------
@@ -8,9 +8,9 @@ Table of Content
   - [Main Class](#main-class)
   - [Internal Classes](#internal-classes)
 - [Versions](#versions)
-  - [v1 JSON](#v1-json)
+  - [v0 JSON](#v0-json)
 - [Properties](#properties)
-  - [v1](#v1)
+  - [v0](#v0)
     - [Title](#title)
     - [Description](#description)
     - [Image](#image)
@@ -21,20 +21,20 @@ Table of Content
 # Classes
 
 ## Main Class
-- [podcast-episode](/joystream-content-system/classes/podcast/podcast-episode.md)
+- [podcast-episode](/classes/podcast/podcast-episode.md)
 
 ## Internal Classes
 In order of appearance:
 - [data-directory-object](joystream-content-system/schemas/general/data-directory-object.md)
-- [language](/joystream-content-system/classes/general/language.md)
+- [language](/classes/general/language.md)
 
 # Versions
 
-## v1 JSON
+## v0 JSON
 
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of podcast episode class
   "newProperties": [
     {
@@ -106,7 +106,7 @@ In order of appearance:
 
 # Properties
 
-## v1
+## v0
 
 ### Title
 ```json

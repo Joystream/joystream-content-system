@@ -2,7 +2,7 @@ Table of Contents
 =================
 
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
-- [Design](#design)
+- [Overview](#overview)
 - [Get started](#get-started)
 - [Validation](#validation)
 - [Permissions](#permissions)
@@ -13,17 +13,17 @@ Table of Contents
   - [Entities](#entities)
 <!-- TOC END -->
 
-# Design
+# Overview
 
-The design centers around two key concepts, a class and an entity. A class represents a type of entity family, and it may have sequence of schemas associated with it, which defines different ways an entity of the given class may be encoded. A schema can express familiar constraints around what properties an entity must have in order to submit to the schema. A property is defined by some data type requirements, whether it is optional or not, and some metadata. Importantly, one special data type is called the internal property type, which requires an identifier for some entity of a class defined int he store. This is how data is linked. An entity should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
+The design centers around two key concepts, a `class` and an `entity`. A `class` represents a type of `entity` family, and it may have sequence of `schemas` associated with it, which defines different ways an entity of the given `class` may be encoded. A `schema` can express familiar constraints around what `properties` an entity must have in order to submit to the `schema`. A `property` is defined by some data type requirements, whether it is optional or not, and some metadata. Importantly, one special data type is called the internal `property` type, which requires an identifier for some `entity` of a `class` defined int he store. This is how data is linked. An `entity` should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
 
 # Get started
 
-To understand the system and its workflow, one needs to go through the steps below.
+The design of the system and its workflow is outlined below. For some, it may be easier to follow the [examples](examples) instead, or read them in parallel.
 
 # Validation
 
-All new JSON-schemas, regardless of what they are meant to do, must be validated against the appropriate standard. These standards can be found [here](/joystream-content-system/resources/standards).
+All new JSON-schemas, regardless of what they are meant to do, must be validated against the appropriate standard. These standards can be found [here](/resources/standards).
 
 # Permissions
 
@@ -137,4 +137,4 @@ As both the `External` and `ExternalVec` `type` is commented out, these are curr
 
 ## Entities
 
-We now have a `class`, with one `schema` that
+We now have a `class`, with one `schema` that...

@@ -37,7 +37,7 @@
     },
     "SchemaId": {
       "type": "integer",
-      "minimum": 1
+      "minimum": 0
     },
     "PropertyName": {
       "type": "string",
@@ -47,7 +47,7 @@
     "SinglePropertyValue": {
       "anyOf": [
         { "type": "boolean" },
-        { "type": "integer" }, 
+        { "type": "integer" },
         { "type": "string", "minLength": 1 },
         { "$ref": "#/definitions/EntityId" }
       ]

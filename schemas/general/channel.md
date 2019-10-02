@@ -1,5 +1,5 @@
-Channel JSON Schemas
-====================
+Channel - Class Schemas
+=======================
 
 Table of Content
 ----------------
@@ -8,9 +8,9 @@ Table of Content
   - [Main Class](#main-class)
   - [Internal Classes](#internal-classes)
 - [Versions](#versions)
-  - [v1 JSON](#v1-json)
+  - [v0 JSON](#v0-json)
 - [Properties](#properties)
-  - [v1](#v1)
+  - [v0](#v0)
     - [Channel Name](#channel-name)
     - [Description](#description)
     - [Image](#image)
@@ -21,19 +21,19 @@ Table of Content
 # Classes
 
 ## Main Class
-- [channel](/joystream-content-system/classes/general/channel.md)
+- [channel](/classes/general/channel.md)
 
 ## Internal Classes
 In order of appearance:
-- [language](/joystream-content-system/classes/general/language.md)
+- [language](/classes/general/language.md)
 
 # Versions
 
-## v1 JSON
+## v0 JSON
 
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of channel class
   "newProperties": [
     {
@@ -114,7 +114,7 @@ In order of appearance:
 
 # Properties
 
-## v1
+## v0
 
 ### Channel Name
 ```json

@@ -1,5 +1,5 @@
-Podcast Category itunes JSON Schemas
-====================================
+Podcast Category itunes - Class Schemas
+=======================================
 
 Table of Content
 ----------------
@@ -8,9 +8,9 @@ Table of Content
   - [Main Class](#main-class)
   - [Internal Classes](#internal-classes)
 - [Versions](#versions)
-  - [v1 JSON](#v1-json)
+  - [v0 JSON](#v0-json)
 - [Properties](#properties)
-  - [v1](#v1)
+  - [v0](#v0)
     - [Podcast category](#podcast-category)
   - [Possible Future Properties](#possible-future-properties)
 <!-- TOC END -->
@@ -18,18 +18,18 @@ Table of Content
 # Classes
 
 ## Main Class
-- [podcast-category-itunes](/joystream-content-system/classes/podcast/podcast-category-itunes.md)
+- [podcast-category-itunes](/classes/podcast/podcast-category-itunes.md)
 
 ## Internal Classes
 In order of appearance:
 
 # Versions
 
-## v1 JSON
+## v0 JSON
 
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of podcast-category-itunes class
   "newProperties": [
     {
@@ -45,7 +45,7 @@ In order of appearance:
 
 # Properties
 
-## v1
+## v0
 
 ### Podcast category
 ```json

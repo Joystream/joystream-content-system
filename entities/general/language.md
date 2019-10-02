@@ -12,15 +12,15 @@ Table of Content
 
 ## Class and Schema
 
-- [class](/joystream-content-system/classes/general/language.md)
-- Class Id : `NA`
-- [schema](/joystream-content-system/schemas/general/language.md)
-- Supported schema Id(s): `1`
+- [class](/classes/general/language.md)
+- Class Id : `2`
+- [schema](/schemas/general/language.md)
+- Supported schema Id(s): `0`
 
 ## CreateEntity JSON-schema
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of language class
 }
 ```
@@ -222,7 +222,7 @@ Example below for entityId `43`, English:
 ```json
 {
   "entityId": 43,
-  "schemaId": 1,
+  "schemaId": 0,
      "propertyValues": [
     {
       "name": "Language",

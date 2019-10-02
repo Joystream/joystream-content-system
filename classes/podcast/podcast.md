@@ -1,5 +1,5 @@
-Podcast Class
-=============
+Podcast - Class
+===============
 
 Table of Content
 ----------------
@@ -8,11 +8,11 @@ Table of Content
   - [Explanation](#explanation)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v1](#v1)
+    - [v0](#v0)
 <!-- TOC END -->
 
 ## ClassID
-NA
+`4`
 
 ## Explanation
 Podcast entities are [episodic](#podcast-episodes) series that must follow the itunes standard for metadata.
@@ -26,22 +26,22 @@ Podcast entities are [episodic](#podcast-episodes) series that must follow the i
 ```
 
 ## Properties
-List of all properties available for this class, for each [schema](/joystream-content-system/schemas/podcast/podcast.md).
+List of all properties available for this class, for each [schema](/schemas/podcast/podcast.md).
 
-### v1
+### v0
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|
 |`Title`                  |`Text`                                            | `true` | y |`m,cc,co` |
 |`Description`            |`Text`                                            | `true` | y |          |
 |`Image`                  |`Text`                                            | `true` | y |          |
-|`Language`               |[Internal](../general/language.md)                | `true` | y |          |
-|`Podcast episodes`       |[InternalVec](podcast-episodes.md)                |   -    | y |          |
+|`Language`               |[`Internal`](../general/language.md)              | `true` | y |          |
+|`Podcast episodes`       |[`InternalVec`](podcast-episodes.md)              |   -    | y |          |
 |`Link`                   |`Text`                                            |   -    | y |          |
 |`Author`                 |`Text`                                            |   -    | y |          |
 |`Owner name`             |`Text`                                            |   -    | y |          |
 |`Owner email`            |`Text`                                            |   -    | y |          |
 |`Subtitle`               |`Text`                                            |   -    | y |          |
-|`Podcast category`       |[InternalVec](podcast-categories-itunes.md)       |   -    | y |          |
+|`Podcast category`       |[`InternalVec`](podcast-categories-itunes.md)     |   -    | y |          |
 |`Explicit`               |`bool`                                            |   -    | y |          |
 |`Subtitle`               |`Text`                                            |   -    | y |          |

@@ -1,5 +1,5 @@
-Language JSON Schemas
-====================
+Language - Class Schemas
+========================
 
 Table of Content
 ----------------
@@ -8,9 +8,9 @@ Table of Content
   - [Main Class](#main-class)
   - [Internal Classes](#internal-classes)
 - [Versions](#versions)
-  - [v1 JSON](#v1-json)
+  - [v0 JSON](#v0-json)
 - [Properties](#properties)
-  - [v1](#v1)
+  - [v0](#v0)
     - [Object](#object)
   - [Possible Future Properties](#possible-future-properties)
     - [Country code](#country-code)
@@ -19,18 +19,18 @@ Table of Content
 # Classes
 
 ## Main Class
-- [language](/joystream-content-system/classes/general/language.md)
+- [language](/classes/general/language.md)
 
 ## Internal Classes
 In order of appearance:
 
 # Versions
 
-## v1 JSON
+## v0 JSON
 
 ```json
 {
-  "classId": 1,
+  "classId": <input>,
   // Id of language class
   "newProperties": [
     {
@@ -46,7 +46,7 @@ In order of appearance:
 
 # Properties
 
-## v1
+## v0
 
 ### Object
 ```json

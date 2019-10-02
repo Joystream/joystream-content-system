@@ -6,13 +6,14 @@ Table of Content
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
+    - [Protection](#protection)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
     - [v0](#v0)
 <!-- TOC END -->
 
 ## ClassID
-NA
+`6`
 
 ## Explanation
 Categories as defined for podcasts published in itunes.
@@ -39,9 +40,9 @@ This would make discovery more difficult, and would lead to thousands of entitie
 }
 ```
 ## Properties
-List of all properties available for this class, for each [schema](/joystream-content-system/schemas/podcast/podcast-category-itunes.md).
+List of all properties available for this class, for each [schema](/schemas/podcast/podcast-category-itunes.md).
 
-### v1
+### v0
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|

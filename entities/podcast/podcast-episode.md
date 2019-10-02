@@ -12,16 +12,16 @@ Table of Content
 
 ## Class and Schema
 
-- [class](/joystream-content-system/classes/podcast/podcast-episode.md)
-- Class Id : `NA`
-- [schema](/joystream-content-system/schemas/podcast/podcast-episode.md)
-- Supported schema Id(s): `1`
+- [class](/classes/podcast/podcast-episode.md)
+- Class Id : `5`
+- [schema](/schemas/podcast/podcast-episode.md)
+- Supported schema Id(s): `0`
 
 ## CreateEntity JSON-schema
 ```json
 {
-  "classId": 1,
-  // Id of podcast class
+  "classId": <input>,
+  // Id of podcast-episode class
 }
 ```
 
@@ -35,7 +35,7 @@ Example below for `entityId 1`
 ```json
 {
   "entityId": 1,
-  "schemaId": 1,
+  "schemaId": 0,
      "propertyValues": [
     {
       "name": "Title",
@@ -54,8 +54,8 @@ Example below for `entityId 1`
       "value": 43
     },
     {
-      "name": "Podcast episodes",
-      "value": "0xf8a54ce6feb08c0d0cf26b426b553a531afa5cfb609cea693ca520fef034ad60"
+      "name": "Object",
+      "value": 1338
     },
     {
       "name": "Author",

@@ -9,14 +9,14 @@ Table of Content
     - [Protection](#protection)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v1](#v1)
+    - [v0](#v0)
 <!-- TOC END -->
 
 ## ClassID
-NA
+`1`
 
 ## Explanation
-Enforces all content to include an entry from the Data Directory.
+Enforces all content to include an entry from the `dataDirectory`.
 
 ### Protection
 
@@ -26,14 +26,14 @@ In the current implementation, there are no restrictions as to what can be passe
 ```json
 {
   "name": "Data Directory Object",
-  "description": "Points to a hex encoded ContentId in the data directory`.",
+  "description": "Points to a hex encoded ContentId in the data directory.",
 }
 ```
 
 ## Properties
-List of all properties available for this class, for each [schema](/joystream-content-system/schemas/general/data-directory-object.md).
+List of all properties available for this class, for each [schema](/schemas/general/data-directory-object.md).
 
-### v1
+### v0
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|

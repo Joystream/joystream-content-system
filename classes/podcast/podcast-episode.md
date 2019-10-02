@@ -8,11 +8,11 @@ Table of Content
   - [Explanation](#explanation)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Properties](#properties)
-    - [v1](#v1)
+    - [v0](#v0)
 <!-- TOC END -->
 
 ## ClassID
-NA
+`5`
 
 ## Explanation
 Podcast episodes are entities tied to a specific [podcast](#podcast). These must follow the itunes standard for metadata.
@@ -26,17 +26,17 @@ Podcast episodes are entities tied to a specific [podcast](#podcast). These must
 ```
 
 ## Properties
-List of all properties available for this class, for each [schema](/joystream-content-system/schemas/podcast/podcast-episode.md).
+List of all properties available for this class, for each [schema](/schemas/podcast/podcast-episode.md).
 
-### v1
+### v0
 
 |     Property Name       | Property Type (links to internal class)          |Required|New|  Rules   |
 |-------------------------|--------------------------------------------------|:------:|:-:|----------|
 |`Title`                  |`Text`                                            | `true` | y |`m,cc,co` |
 |`Description`            |`Text`                                            | `true` | y |          |
 |`Image`                  |`Text`                                            | `true` | y |          |
-|`Language`               |[Internal](../general/language.md)                | `true` | y |          |
-|`Object`                 |[Internal](../general/data-directory-object.md)   |   -    | y |          |
+|`Language`               |[`Internal`](../general/language.md)              | `true` | y |          |
+|`Object`                 |[`Internal`](../general/data-directory-object.md) |   -    | y |          |
 |`Author`                 |`Text`                                            |   -    | y |          |
 |`Subtitle`               |`Text`                                            |   -    | y |          |
 |`Season`                 |`Uint16`                                          |   -    | y |          |
