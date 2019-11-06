@@ -3,7 +3,6 @@ Table of Contents
 
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
 - [Overview](#overview)
-  - [Resources, examples and templates](#resources-examples-and-templates)
 - [Concepts](#concepts)
   - [Classes](#classes)
   - [Schemas](#schemas)
@@ -12,7 +11,7 @@ Table of Contents
   - [Entities](#entities)
   - [Permissions](#permissions)
 - [Overview of Classes](#overview-of-classes)
-  - [General](#general)
+    - [General](#general)
   - [Type Specific](#type-specific)
     - [Books](#books)
     - [Music](#music)
@@ -23,11 +22,9 @@ Table of Contents
 
 This repo contains information and resources for using the Joystream content system.
 
-The design centers around two key concepts, [classes](#classes) and [entities](#entities). A `class` represents a type of `entity` family, and it may have sequence of [schemas](#schemas) associated with it, which defines different ways an `entity` of the given `class` may be encoded. A `schema` can express familiar constraints around what [properties](#properties) an `entity` must have in order to submit to the `schema`. A `property` is defined by some data type requirements, whether it is optional or not, and some metadata. Importantly, one special data type is called the internal `property` type, which requires an identifier for some `entity` of a `class` defined int he store. This is how data is linked. An `entity` should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
+The design centers around two key concepts, [classes](#classes) and [entities](#entities). A `Class` represents a type of `entity` family, and it may have sequence of [schemas](#schemas) associated with it, which defines different ways an entity of the given class may be encoded. A schema can express familiar constraints around what [properties](#properties) an entity must have in order to submit to the schema. A property is defined by some data type requirements, whether it is optional or not, and some metadata. There are a variety of [property types](#property-types). Importantly, one special data type is called the `Internal` (or `InternalVec`), which requires an identifier for some entity of a class defined int he store. This is how data is linked. An entity should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
 
-## Resources, examples and templates
-
-Go [here](resources) for more information, about the system, how it works, and examples.
+These concepts are explained in more details below, and the [resources](resources) section contains further documentation, workflow and examples.
 
 # Concepts
 
@@ -60,7 +57,29 @@ Think: Planet.v0 ["Mass", "Distance From Sun", "Number Of Moons"]
 
 ### Property Types
 
-Table TODO
+The table below shows an overview of the `property types` available in the versioned store. For more information about these types, limitations and use cases, go [here](/resources/README.md#property-types).
+
+| Property Type | Description                                     | Additional Input Required  |
+|---------------|-------------------------------------------------|----------------------------|
+| Text          | String of characters                            | `maxTextLength`            |
+| TextVec       | Array of strings                                | `maxItems`,`maxTextLength` |
+| Bool          | Boolean (eg. `true` or `false`)                 | -                          |
+| BoolVec       | Array of Booleans                               | `maxItems`                 |
+| Internal      | Allows reference to entities in another class   | `classId`                  |
+| InternalVec   | Array of reference to entities in another class | `classId`,`maxItems`       |
+| Uint16        | 16-bit unsigned integer                         | -                          |
+| Uint32        | 32-bit unsigned integer                         | -                          |
+| Uint64        | 64-bit unsigned integer                         | -                          |
+| Int16         | 16-bit signed integer                           | -                          |
+| Int32         | 32-bit signed integer                           | -                          |
+| Int64         | 64-bit signed integer                           | -                          |
+| Uint16Vec     | Array of 16-bit unsigned integer                | `maxItems`                 |
+| Uint32Vec     | Array of 32-bit unsigned integer                | `maxItems`                 |
+| Uint64Vec     | Array of 64-bit unsigned integer                | `maxItems`                 |
+| Int16Vec      | Array of 16-bit signed integer                  | `maxItems`                 |
+| Int32Vec      | Array of 32-bit signed integer                  | `maxItems`                 |
+| Int64Vec      | Array of 64-bit signed integer                  | `maxItems`                 |
+| External      | Reference outside of the Versioned Store        | NA                         |
 
 ## Entities
 
@@ -76,31 +95,29 @@ The "Write" and "Read" column for each `Class` should be understood as follows:
 - Write indicates the [permissions](https://github.com/Joystream/joystream/blob/master/testnets/rome/specification/runtime/versioned-store-permissions.md) required to create and update new `entities` in this `Class`.
 - Read indicates the [permissions](https://github.com/Joystream/joystream/blob/master/testnets/rome/specification/runtime/versioned-store-permissions.md) required to reference an [Internal](-) `entity`, or [InternalVec](-) `entities` in this `Class` (if a [property](-) of this this [property type](-) exists.)
   - `r` means `Root` only (ie. `Sudo` or `Council` vote)
-  - `cl` means `Content Curator Group Lead`
-  - `c` means `Content Curators` (or a subgroup of such)
-  - `co` means the `channel owners` (ie. the `Member` that owns the channel that created the `entity`)
+  - `cg` means `Content Curator Lead`, and any group(s) (of `Content Curator`) that the Lead assigns permissions.
+  - `co` means the `Channel Owners` (ie. the `Member` that owns the channel that created the `entity`)
   - `cc` means all `Content Creators`
-Note that the system is hierarchical.
 
 # Overview of Classes
 
-The tables below contains an overview of all classes available in the Joystream Content System. Click the link under the "Information" for a more verbose explanation of the class.
+The tables below contains an overview of all classes available in the Joystream Content System. Click the name of the name of the class for a more verbose explanation.
 
-## General
+### General
 
 This table contains all classes to be used for general purposes.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Media Object](classes/general/media-object.md)                  | `NA`  |    `v0`     | `cc`  | `cc`  |
-|[Language](classes/general/language.md)                          | `NA`  |    `v0`     |  `r`  | `cc`  |
-|[Year](classes/general/year.md)                                  | `NA`  |    `v0`     |  `r`  | `cc`  |
-|[Month](classes/general/month.md)                                | `NA`  |    `v0`     |  `r`  | `cc`  |
-|[Date](classes/general/date.md)                                  | `NA`  |    `v0`     |  `r`  | `cc`  |
-|[Content License](classes/general/content-license.md)            | `NA`  |    `v0`     | `cl`  | `cc`  |
-|[Publication Status](classes/general/publication-status.md)      | `NA`  |    `v0`     | `cl`  | `co`  |
-|[Curation Status](classes/general/curation-status.md)            | `NA`  |    `v0`     | `cl`  | `NA`  |
-|[Featured Content](classes/general/featured-content.md)          | `NA`  |    `v0`     | `cl`  | `NA`  |
+|[Language](classes/general/language.md)                          | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Year](classes/general/year.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Month](classes/general/month.md)                                | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Date](classes/general/date.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Content License](classes/general/content-license.md)            | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Publication Status](classes/general/publication-status.md)      | `NA`  |    `v0`     | `cg`  | `co`  |
+|[Curation Status](classes/general/curation-status.md)            | `NA`  |    `v0`     | `cg`  | `NA`  |
+|[Featured Content](classes/general/featured-content.md)          | `NA`  |    `v0`     | `cg`  | `NA`  |
 
 ## Type Specific
 
@@ -109,11 +126,11 @@ This table contains all classes to be used for specifically for books.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Book](classes/books/book.md)                                    | `NA`  |    `v0`     |  `c`  | `NA`  |
-|[Book Category](classes/books/book-category.md)                  | `NA`  |    `v0`     | `cl`  | `cc`  |
+|[Book](classes/books/book.md)                                    | `NA`  |    `v0`     | `cg`  | `NA`  |
+|[Book Category](classes/books/book-category.md)                  | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Book Item](classes/books/book-item.md)                          | `NA`  |    `v0`     | `co`  | `co`  |
 |[Book Item Entry](classes/books/book-item-entry.md)              | `NA`  |    `v0`     | `co`  | `co`  |
-|[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `v0`     | `cl`  | `cc`  |
+|[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Book Series](classes/books/book-series.md)                      | `NA`  |    `NA`     | `co`  | `co`  |
 
 ### Music
@@ -123,9 +140,9 @@ This table contains all classes to be used for specifically for music.
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Music Album](classes/music/music-album.md)                      | `NA`  |    `v0`     | `co`  | `NA`  |
 |[Music Track](classes/music/music-track.md)                      | `NA`  |    `v0`     | `co`  | `co`  |
-|[Music Genre](classes/music/music-genre.md)                      | `NA`  |    `v0`     | `cl`  | `cc`  |
-|[Music Mood](classes/music/music-mood.md)                        | `NA`  |    `v0`     | `cl`  | `cc`  |
-|[Music Theme](classes/music/music-theme.md)                      | `NA`  |    `v0`     | `cl`  | `cc`  |
+|[Music Genre](classes/music/music-genre.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Music Mood](classes/music/music-mood.md)                        | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Music Theme](classes/music/music-theme.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Music Playlist Item](classes/music/music-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
 |[Music Playlist](classes/music/music-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
 
@@ -135,6 +152,6 @@ This table contains all classes to be used for specifically for videos.
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Video](classes/videos/video.md)                                 | `NA`  |    `v0`     | `co`  | `co`  |
-|[Video Category](classes/videos/video-category.md)               | `NA`  |    `v0`     | `cl`  | `cc`  |
+|[Video Category](classes/videos/video-category.md)               | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Video Playlist Item](classes/video/video-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
 |[Video Playlist](classes/video/video-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
