@@ -1,0 +1,12 @@
+{
+  "classId": "Video Category",
+  "newProperties": [
+    {
+      "name": "Category",
+      "description": "Categories for videos.",
+      "type": "Text",
+      "required": true,
+      "maxTextLength": 255
+    }
+  ]
+}

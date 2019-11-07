@@ -1,0 +1,12 @@
+{
+  "classId": "Date",
+  // Placeholder
+  "newProperties": [
+    {
+      "name": "Date",
+      "description": "A date as an integer in the gregorian calender 'dd' (dd.mm.yyyy)",
+      "required": true,
+      "type": "Uint16"
+    }
+  ]
+}

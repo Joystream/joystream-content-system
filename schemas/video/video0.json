@@ -1,0 +1,103 @@
+{
+  "classId": "Video",
+  "newProperties": [
+    {
+      "name": "Title",
+      "description": "The title of the video",
+      "type": "Text",
+      "required": true,
+      "maxTextLength": 255
+    },
+    {
+      "name": "Video Thumbnail",
+      "description": "URL to video thumbnail: NOTE: Should be an https link to an image of ratio 16:9, ideally 1280 pixels wide by 720 pixels tall, with a minimum width of 640 pixels, in JPEG or PNG format.",
+      "required": true,
+      "type": "Text",
+      "maxTextLength": 255
+    },
+    {
+      "name": "About the Video",
+      "description": "A short description of the video",
+      "required": true,
+      "type": "Text",
+      "maxTextLength": 255
+    },
+    {
+      "name": "Language",
+      "description": "The main language used in the video.",
+      "required": true,
+      "type": "Internal",
+      "classId": "Language"
+    },
+    {
+      "name": "Description",
+      "description": "Full description of the video",
+      "type": "Text",
+      "maxTextLength": 4000
+    },
+    {
+      "name": "Year of Release",
+      "description": "The year the video was first released.",
+      "required": false,
+      "type": "Internal",
+      "classId": "Year"
+    },
+    {
+      "name": "Month of Release",
+      "description": "The month the video was first released.",
+      "type": "Internal",
+      "classId": "Month"
+    },
+    {
+      "name": "Date of Release",
+      "description": "The date the video was first released.",
+      "type": "Internal",
+      "classId": "Date"
+    },
+    {
+      "name": "Category",
+      "description": "The category of the video.",
+      "type": "Internal",
+      "classId": "Video Category"
+    },
+    {
+      "name": "Link",
+      "description": "A link to the creators page.",
+      "type": "TextVec",
+      "maxItems": 5,
+      "maxTextLength": 255
+    },
+    {
+      "name": "Object",
+      "description": "The entityId of the object in the data directory.",
+      "type": "Internal",
+      "classId": "Media Object"
+    },
+    {
+      "name": "Publication Status",
+      "description": "The publication status of the video.",
+      "required": true,
+      "type": "Internal",
+      "classId": "Publication Status"
+    },
+    {
+      "name": "Curation Status",
+      "description": "The publication status of the video set by the a content curator on the platform.",
+      "type": "Internal",
+      "classId": "Curation Status"
+    },
+    {
+      "name": "Explicit",
+      "description": "Indicates whether the video contains explicit material.",
+      "required": true,
+      "type": "Bool"
+    },
+    {
+      "name": "License",
+      "description": "The license of which the video is released under.",
+      "required": true,
+      "type": "Internal",
+      "classId": "Content License"
+    }
+  ]
+}

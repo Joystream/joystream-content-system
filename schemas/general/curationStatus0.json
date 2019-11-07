@@ -1,0 +1,13 @@
+{
+  "classId": "Curation Status",
+  // Placeholder
+  "newProperties": [
+    {
+      "name": "Status",
+      "description": "The curator publication status of the content in the content directory.",
+      "required": true,
+      "type": "Text",
+      "maxTextLength": 255
+    }
+  ]
+}

@@ -5,6 +5,6 @@ Table of Contents
 - [Get Started](#get-started)
 <!-- TOC END -->
 
-# Get Started
+# Schemas
 
 TODO

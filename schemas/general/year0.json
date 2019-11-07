@@ -1,0 +1,12 @@
+{
+  "classId": "Year",
+  // Placeholder
+  "newProperties": [
+    {
+      "name": "Year",
+      "description": "A year as an integer in the gregorian calender 'yyyy' (dd.mm.yyyy)",
+      "required": true,
+      "type": "Uint16"
+    }
+  ]
+}
