@@ -1,13 +1,11 @@
 {
   "classId": "Featured Content",
-  // Placeholder
   "newProperties": [
     {
       "name": "Top Video",
       "description": "The video that has the most prominent position(s) on the platform.",
       "type": "Internal",
       "classId": "Video"
-      // "Video"
     },
     {
       "name": "Featured Videos",
@@ -15,7 +13,6 @@
       "type": "InternalVec",
       "maxItems": 6,
       "classId": "Video"
-      // "Video"
     },
     {
       "name": "Featured Albums",
@@ -23,15 +20,6 @@
       "type": "InternalVec",
       "maxItems": 6,
       "classId": "Music Album"
-      // "Music Album"
-    },
-    {
-      "name": "Featured Books",
-      "description": "Books featured in the Book tab.",
-      "type": "InternalVec",
-      "maxItems": 6,
-      "classId": "Book"
-      // "Book"
     }
   ]
 }

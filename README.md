@@ -59,27 +59,27 @@ Think: Planet.v0 ["Mass", "Distance From Sun", "Number Of Moons"]
 
 The table below shows an overview of the `property types` available in the versioned store. For more information about these types, limitations and use cases, go [here](/resources/README.md#property-types).
 
-| Property Type | Description                                     | Additional Input Required  |
-|---------------|-------------------------------------------------|----------------------------|
-| Text          | String of characters                            | `maxTextLength`            |
-| TextVec       | Array of strings                                | `maxItems`,`maxTextLength` |
-| Bool          | Boolean (eg. `true` or `false`)                 | -                          |
-| BoolVec       | Array of Booleans                               | `maxItems`                 |
-| Internal      | Allows reference to entities in another class   | `classId`                  |
-| InternalVec   | Array of reference to entities in another class | `classId`,`maxItems`       |
-| Uint16        | 16-bit unsigned integer                         | -                          |
-| Uint32        | 32-bit unsigned integer                         | -                          |
-| Uint64        | 64-bit unsigned integer                         | -                          |
-| Int16         | 16-bit signed integer                           | -                          |
-| Int32         | 32-bit signed integer                           | -                          |
-| Int64         | 64-bit signed integer                           | -                          |
-| Uint16Vec     | Array of 16-bit unsigned integer                | `maxItems`                 |
-| Uint32Vec     | Array of 32-bit unsigned integer                | `maxItems`                 |
-| Uint64Vec     | Array of 64-bit unsigned integer                | `maxItems`                 |
-| Int16Vec      | Array of 16-bit signed integer                  | `maxItems`                 |
-| Int32Vec      | Array of 32-bit signed integer                  | `maxItems`                 |
-| Int64Vec      | Array of 64-bit signed integer                  | `maxItems`                 |
-| External      | Reference outside of the Versioned Store        | NA                         |
+| Property Type   | Description                                     | Additional Input Required  |
+|-----------------|-------------------------------------------------|----------------------------|
+| `Text`          | String of characters                            | `maxTextLength`            |
+| `TextVec`       | Array of strings                                | `maxItems`,`maxTextLength` |
+| `Bool`          | Boolean (eg. `true` or `false`)                 | -                          |
+| `BoolVec`       | Array of Booleans                               | `maxItems`                 |
+| `Internal`      | Allows reference to entities in another class   | `classId`                  |
+| `InternalVec`   | Array of reference to entities in another class | `classId`,`maxItems`       |
+| `Uint16`        | 16-bit unsigned integer                         | -                          |
+| `Uint32`        | 32-bit unsigned integer                         | -                          |
+| `Uint64`        | 64-bit unsigned integer                         | -                          |
+| `Int16`         | 16-bit signed integer                           | -                          |
+| `Int32`         | 32-bit signed integer                           | -                          |
+| `Int64`         | 64-bit signed integer                           | -                          |
+| `Uint16Vec`     | Array of 16-bit unsigned integer                | `maxItems`                 |
+| `Uint32Vec`     | Array of 32-bit unsigned integer                | `maxItems`                 |
+| `Uint64Vec`     | Array of 64-bit unsigned integer                | `maxItems`                 |
+| `Int16Vec`      | Array of 16-bit signed integer                  | `maxItems`                 |
+| `Int32Vec`      | Array of 32-bit signed integer                  | `maxItems`                 |
+| `Int64Vec`      | Array of 64-bit signed integer                  | `maxItems`                 |
+| `External`      | Reference outside of the Versioned Store        | NA                         |
 
 ## Entities
 
@@ -123,14 +123,15 @@ This table contains all classes to be used for general purposes.
 
 ### Books
 This table contains all classes to be used for specifically for books.
+**Note: Books will not be available as a content type for launch**
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Book](classes/books/book.md)                                    | `NA`  |    `v0`     | `cg`  | `NA`  |
-|[Book Category](classes/books/book-category.md)                  | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Book Item](classes/books/book-item.md)                          | `NA`  |    `v0`     | `co`  | `co`  |
-|[Book Item Entry](classes/books/book-item-entry.md)              | `NA`  |    `v0`     | `co`  | `co`  |
-|[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Book](classes/books/book.md)                                    | `NA`  |    `NA`     | `cg`  | `NA`  |
+|[Book Category](classes/books/book-category.md)                  | `NA`  |    `NA`     | `cg`  | `cc`  |
+|[Book Item](classes/books/book-item.md)                          | `NA`  |    `NA`     | `co`  | `co`  |
+|[Book Item Entry](classes/books/book-item-entry.md)              | `NA`  |    `NA`     | `co`  | `co`  |
+|[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `NA`     | `cg`  | `cc`  |
 |[Book Series](classes/books/book-series.md)                      | `NA`  |    `NA`     | `co`  | `co`  |
 
 ### Music

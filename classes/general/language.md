@@ -18,13 +18,13 @@ Table of Content
 `NA`
 
 ## Explanation
-To enforce a specific standard of tagging languages for all content types.
+To enforce a specific standard of tagging languages across all content types.
 
-Future schemas could include additional properties such as `for hearing impaired` for subtitles.
+Future schemas could include additional properties such as `for hearing impaired` for subtitles, although that may be a new `Class` of its own.
 
 ### Protection
 
-The concept of language needs to a follow strict standard. If all content creators could create a new `entity` in this `Class`, one would expect `n` ways of defining (British) English:
+The concept needs to a follow strict standard. If all content creators could create a new `entity` in this `Class`, one would expect `n` ways of defining (British) English:
 - `en`
 - `en-BR`
 - `eng`
@@ -39,8 +39,8 @@ This would make discovery more difficult, and would lead to thousands of entitie
 ## CreateClass JSON-schema
 ```json
 {
-    "name": "Language",
-    "description": "Class for setting language."
+  "name": "Language",
+  "description": "Class for setting language."
 }
 ```
 
@@ -65,4 +65,4 @@ This would make discovery more difficult, and would lead to thousands of entitie
 
 ## Entities
 
-[Some link](-)
+[Link](../../entities/general/language.md)

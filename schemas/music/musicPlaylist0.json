@@ -34,32 +34,32 @@
       "description": "The genre(s) of the playlist.",
       "type": "InternalVec",
       "maxItems": 3,
-      "classId": 6
+      "classId": "Music Genre"
     },
     {
       "name": "Mood",
       "description": "The mood(s) of the playlist.",
       "type": "InternalVec",
       "maxItems": 3,
-      "classId": 6
+      "classId": "Music Mood"
     },
     {
       "name": "Theme",
       "description": "The theme(s) of the playlist.",
       "type": "InternalVec",
       "maxItems": 3,
-      "classId": 6
+      "classId": "Music Theme"
     },
     {
-      "name": "Information",
-      "description": "Information about the playlist.",
+      "name": "Publication Status",
+      "description": "The publication status of the album.",
       "required": true,
-      "type": "Text",
-      "maxTextLength": 4000
+      "type": "Internal",
+      "classId": "Publication Status"
     },
     {
       "name": "Curation Status",
-      "description": "The publication status of the playlist set by the a content curator on the platform.",
+      "description": "The publication status of the album set by the a content curator on the platform.",
       "type": "Internal",
       "classId": "Curation Status"
     },

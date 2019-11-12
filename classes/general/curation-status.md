@@ -1,5 +1,5 @@
-Media Object - Class
-====================
+Curation Status - Class
+=======================
 
 Table of Content
 ----------------
@@ -18,37 +18,38 @@ Table of Content
 `NA`
 
 ## Explanation
-Entities in this Class
+To enforce a specific standard of tagging content where a `Content Curator` has performed an action.
 
 ### Protection
 
-In the current implementation, there are no restrictions as to what can be passed as values for an `entity` when populating the one property in this `class`.
+It needs to be clear for the `publisher` why a `Content Curator` has made performed an action on an entity they published.
 
 ## CreateClass JSON-schema
 ```json
 {
-  "name": "Media Object",
-  "description": "Class for resolving a content entity to an actual media file or link."
+  "name": "Curation Status",
+  "description": "Class for curators to set the publication status of a content entity."
 }
 ```
 
 ## Schemas
+
 |Version and Link                                           |   Testnet(s)     |Active|
 |:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/mediaObject0.json)             | `Rome`           | `no` |
+| [v0](../../schemas/general/curationStatus0.json)          | `Rome`           | `no` |
 
 ## Properties
 ### Rome
 ##### In Class index 0
 ```json
 {
-  "name": "Object",
-  "description": "ContentId of object in the data directory",
-  "type": "Text",
+  "name": "Status",
+  "description": "The curator publication status of the content in the content directory.",
   "required": true,
-  "maxTextLength": 68
+  "type": "Text",
+  "maxTextLength": 50
 }
 ```
 
 ## Entities
-NA
+[Link](../../entities/general/curation-status.md)

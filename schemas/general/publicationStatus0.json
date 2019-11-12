@@ -1,12 +1,12 @@
 {
   "classId": "Publication Status",
-  // Placeholder
   "newProperties": [
     {
       "name": "Status",
       "description": "The publication status of the content in the content directory.",
       "required": true,
-      "type": "Bool"
+      "type": "Text",
+      "maxTextLength": 50
     }
   ]
 }
