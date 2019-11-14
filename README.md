@@ -13,7 +13,6 @@ Table of Contents
 - [Overview of Classes](#overview-of-classes)
     - [General](#general)
   - [Type Specific](#type-specific)
-    - [Books](#books)
     - [Music](#music)
     - [Videos](#videos)
 <!-- TOC END -->
@@ -103,6 +102,8 @@ The "Write" and "Read" column for each `Class` should be understood as follows:
 
 The tables below contains an overview of all classes available in the Joystream Content System. Click the name of the name of the class for a more verbose explanation.
 
+**Note: All `classes` where the "Valid Schemas" show `NA` means that it will not be included at launch.**
+
 ### General
 
 This table contains all classes to be used for general purposes.
@@ -111,16 +112,18 @@ This table contains all classes to be used for general purposes.
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Media Object](classes/general/media-object.md)                  | `NA`  |    `v0`     | `cc`  | `cc`  |
 |[Language](classes/general/language.md)                          | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Year](classes/general/year.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Month](classes/general/month.md)                                | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Date](classes/general/date.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Content License](classes/general/content-license.md)            | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Publication Status](classes/general/publication-status.md)      | `NA`  |    `v0`     | `cg`  | `co`  |
 |[Curation Status](classes/general/curation-status.md)            | `NA`  |    `v0`     | `cg`  | `NA`  |
 |[Featured Content](classes/general/featured-content.md)          | `NA`  |    `v0`     | `cg`  | `NA`  |
+<!--
+|[Year](classes/general/year.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Month](classes/general/month.md)                                | `NA`  |    `v0`     | `cg`  | `cc`  |
+|[Date](classes/general/date.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
+-->
 
 ## Type Specific
-
+<!--
 ### Books
 This table contains all classes to be used for specifically for books.
 **Note: Books will not be available as a content type for launch**
@@ -133,6 +136,7 @@ This table contains all classes to be used for specifically for books.
 |[Book Item Entry](classes/books/book-item-entry.md)              | `NA`  |    `NA`     | `co`  | `co`  |
 |[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `NA`     | `cg`  | `cc`  |
 |[Book Series](classes/books/book-series.md)                      | `NA`  |    `NA`     | `co`  | `co`  |
+-->
 
 ### Music
 This table contains all classes to be used for specifically for music.

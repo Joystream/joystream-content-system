@@ -30,23 +30,10 @@
       "maxTextLength": 4000
     },
     {
-      "name": "Year of Release",
-      "description": "The year the album was first released.",
+      "name": "First Released",
+      "description": "When the track was first released",
       "required": true,
-      "type": "Internal",
-      "classId": "Year"
-    },
-    {
-      "name": "Month of Release",
-      "description": "The month the album was first released.",
-      "type": "Internal",
-      "classId": "Month"
-    },
-    {
-      "name": "Date of Release",
-      "description": "The date the album was first released.",
-      "type": "Internal",
-      "classId": "Date"
+      "type": "Int64"
     },
     {
       "name": "Genre",
@@ -98,7 +85,7 @@
       "maxTextLength": 255
     },
     {
-      "name": "Composer/songriter",
+      "name": "Composer or songwriter",
       "description": "The composer(s) and/or songwriter(s) of the album.",
       "type": "Text",
       "maxTextLength": 255
@@ -135,6 +122,12 @@
       "required": true,
       "type": "Internal",
       "classId": "Content License"
+    },
+    {
+      "name": "Attribution",
+      "description": "If the License requires attribution, add this here.",
+      "type": "Text",
+      "maxTextLength": 255
     }
   ]
 }

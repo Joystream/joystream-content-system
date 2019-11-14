@@ -9,7 +9,7 @@ Table of Content
     - [Protection](#protection)
   - [CreateClass JSON-schema](#createclass-json-schema)
   - [Schemas](#schemas)
-  - [In Class Properties](#in-class-properties)
+  - [Properties](#properties)
     - [Rome](#rome)
   - [Entities](#entities)
 <!-- TOC END -->
