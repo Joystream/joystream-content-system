@@ -19,7 +19,7 @@ Table of Content
 Entities are protected. Entities are protected. All have [property type](../../README.md#property-types) `Text`.
 The table below lists all available entities:
 
-| Value            | Status                                  | Explaination                                                                                                                                                                       |
+| Value            | Status                                  | Explanation                                                                                                                                                                       |
 |------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "Edited"         | Published (eg. discoverable)         | <p>One or more properties has been changed.<br>Ask in the forum or chat for further information.</p>                                                                             |
 | "Updated schema" | Published (eg. discoverable)         | <p>The entity has been updated to support a new schema.<br>Some properties may have been modified during this process.<br>Ask in the forum or chat for further information.</p> |

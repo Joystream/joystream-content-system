@@ -36,23 +36,10 @@
       "maxTextLength": 4000
     },
     {
-      "name": "Year of Release",
-      "description": "The year the video was first released.",
-      "required": false,
-      "type": "Internal",
-      "classId": "Year"
-    },
-    {
-      "name": "Month of Release",
-      "description": "The month the video was first released.",
-      "type": "Internal",
-      "classId": "Month"
-    },
-    {
-      "name": "Date of Release",
-      "description": "The date the video was first released.",
-      "type": "Internal",
-      "classId": "Date"
+      "name": "First Released",
+      "description": "When the video was first released",
+      "required": true,
+      "type": "Int64"
     },
     {
       "name": "Category",
@@ -98,6 +85,12 @@
       "required": true,
       "type": "Internal",
       "classId": "Content License"
+    },
+    {
+      "name": "Attribution",
+      "description": "If the License requires attribution, add this here.",
+      "type": "Text",
+      "maxTextLength": 255
     }
   ]
 }
