@@ -42,29 +42,31 @@ It needs to be clear for the `publisher` whether their content is `featured` or 
 ### Rome
 ##### In Class index 0
 ```json
-    {
-      "name": "Top Video",
-      "description": "The video that has the most prominent position(s) on the platform.",
-      "type": "Internal",
-      "classId": "Video"
-    },
-    {
-      "name": "Featured Videos",
-      "description": "Videos featured in the Video tab.",
-      "type": "InternalVec",
-      "maxItems": 6,
-      "classId": "Video"
-    },
-    {
-      "name": "Featured Albums",
-      "description": "Music albums featured in the Music tab.",
-      "type": "InternalVec",
-      "maxItems": 6,
-      "classId": "Music Album"
-    }
+{
+  "name": "Top Video",
+  "description": "The video that has the most prominent position(s) on the platform.",
+  "type": "Internal",
+  "classId": "Video"
+  }
+```
+##### In Class index 1
+```json
+{
+  "name": "Featured Videos",
+  "description": "Videos featured in the Video tab.",
+  "type": "InternalVec",
+  "maxItems": 6,
+  "classId": "Video"
+}
+```
+##### In Class index 2
+```json
+{
+  "name": "Featured Albums",
+  "description": "Music albums featured in the Music tab.",
+  "type": "InternalVec",
+  "maxItems": 6,
+  "classId": "Music Album"
+}
 
 ```
-
-## Entities
-
-[Link](../../entities/general/featured-content.md)
