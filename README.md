@@ -158,5 +158,5 @@ This table contains all classes to be used for specifically for videos.
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Video](classes/videos/video.md)                                 | `NA`  |    `v0`     | `co`  | `co`  |
 |[Video Category](classes/videos/video-category.md)               | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Video Playlist Item](classes/video/video-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
-|[Video Playlist](classes/video/video-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
+|[Video Playlist Item](classes/videos/video-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
+|[Video Playlist](classes/videos/video-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
