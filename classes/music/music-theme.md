@@ -17,7 +17,7 @@ Table of Contents
 `NA`
 
 ## Explanation
-To enforce a specific standard of tagging themes for the music content type.
+To enforce a specific standard of tagging themes for the `music` content type.
 
 ### Protection
 
