@@ -1,7 +1,7 @@
 Music Genre - Class
 =====================
 
-Table of Content
+Table of Contents
 ----------------
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [ClassID](#classid)
