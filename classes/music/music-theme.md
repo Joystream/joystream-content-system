@@ -1,7 +1,7 @@
-Name of Class - Class
+Music Theme - Class
 =====================
 
-Table of Content
+Table of Contents
 ----------------
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [ClassID](#classid)
@@ -17,7 +17,7 @@ Table of Content
 `NA`
 
 ## Explanation
-
+To enforce a specific standard of tagging themes for the music content type.
 
 ### Protection
 
@@ -25,8 +25,8 @@ Table of Content
 ## CreateClass JSON-schema
 ```json
 {
-  "name": "",
-  "description": ""
+  "name": "Music Theme",
+  "description": "Class for setting the themes for music."
 }
 ```
 
@@ -34,16 +34,18 @@ Table of Content
 
 |Version and Link                                           |   Testnet(s)     |Active|
 |:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/nameofClass.json)              | `Rome`           | `no` |
+| [v0](../../schemas/music/musicTheme0.json)                | `Rome`           | `yes`|
 
 ## Properties
 ### Rome
 ##### In Class index 0
 ```json
 {
-  "name": "",
-  "description": "",
-  "type": "",
+  "name": "Theme",
+  "description": "Themes for music.",
+  "required": true,
+  "type": "Text",
+  "maxTextLength": 100
 }
 ```
 <!--
