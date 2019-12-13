@@ -79,13 +79,15 @@ const schemasDir = `../schemas`;
 const outDir = `./out`;
 
 function generateFieldMeta (field) {
-  return (`${toTsFieldName(field.name)}: ${JSON.stringify({ ...field }, null , 2)}`);
+  const id = toTsFieldName(field.name);
+  return (`${id}: ${JSON.stringify({ id, ...field }, null , 2)}`);
 }
 
 function generateTsClass (folder, fileName) {
   const schema = JSON.parse(fs.readFileSync(`${schemasDir}/${folder}/${fileName}`, 'utf8'));
   const className = toTsClassName(schema.classId);
 
+  const propIds = [];
   const typeFieldStrs = [];
   const metaFieldsStrs = [];
   const validations = [];
@@ -93,6 +95,8 @@ function generateTsClass (folder, fileName) {
   schema.newProperties.forEach(field => {
     const tsName = toTsFieldName(field.name);
     const tsType = subTypeNameToTsType(field.type);
+
+    propIds.push(tsName);
 
     typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
 
@@ -120,7 +124,26 @@ export type ${className}Type = {
   ${typeFieldStrs.join('\n')}
 };
 
-export const ${className}Class = {
+export type ${className}PropId =
+  ${propIds.map(id => `'${id}'`).join(' |\n  ')}
+;
+
+export type ${className}GenericProp = {
+  id: ${className}PropId,
+  type: string,
+  name: string,
+  description?: string,
+  required?: boolean,
+  maxItems?: number,
+  maxTextLength?: number,
+  classId?: any
+};
+
+type ${className}ClassType = {
+  [id in ${className}Type]: ${className}GenericProp
+};
+
+export const ${className}Class: ${className}ClassType = {
   ${metaFieldsStrs.join(',\n')}
 };
 `);
