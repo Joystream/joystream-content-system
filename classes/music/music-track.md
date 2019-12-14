@@ -42,7 +42,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ##### In Class index 0
 ```json
 {
-  "name": "Track Title",
+  "name": "Title",
   "description": "The title of the track",
   "type": "Text",
   "required": true,
@@ -53,7 +53,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ##### In Class index 1
 ```json
 {
-  "name": "Track Artist",
+  "name": "Artist",
   "description": "The artist, composer, band or group that published the track.",
   "type": "Text",
   "required": true,
@@ -64,7 +64,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ##### In Class index 2
 ```json
 {
-  "name": "Track Thumbnail",
+  "name": "Thumbnail",
   "description": "URL to track cover art: NOTE: Should be an https link to a square image, between 1400x1400 and 3000x3000 pixels, in JPEG or PNG format.",
   "required": true,
   "type": "Text",
@@ -75,7 +75,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ##### In Class index 3
 ```json
 {
-  "name": "About the Track",
+  "name": "Description",
   "description": "Information about the track.",
   "type": "Text",
   "maxTextLength": 255
@@ -177,7 +177,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ```json
 {
   "name": "Publication Status",
-  "description": "The publication status of the album.",
+  "description": "The publication status of the track.",
   "required": true,
   "type": "Internal",
   "classId": "Publication Status"
@@ -188,13 +188,23 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 ```json
 {
   "name": "Curation Status",
-  "description": "The publication status of the album set by the a content curator on the platform.",
+  "description": "The publication status of the track set by the a content curator on the platform.",
   "type": "Internal",
   "classId": "Curation Status"
 }
 ```
 
 ##### In Class index 15
+```json
+{
+  "name": "Explicit",
+  "description": "Indicates whether the track contains explicit material.",
+  "required": true,
+  "type": "Bool"
+}
+```
+
+##### In Class index 16
 ```json
 {
   "name": "License",
@@ -205,7 +215,7 @@ To enforce a specific standard of tagging tracks for the `music` content type.
 }
 ```
 
-##### In Class index 16
+##### In Class index 17
 ```json
 {
   "name": "Attribution",
