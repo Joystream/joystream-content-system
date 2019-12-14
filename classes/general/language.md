@@ -55,7 +55,7 @@ This would make discovery more difficult, and would lead to thousands of entitie
 ##### In Class index 0
 ```json
 {
-  "name": "Language code",
+  "name": "Language Code",
   "description": "Language code following the ISO 639-1 two letter standard.",
   "type": "Text",
   "required": true,

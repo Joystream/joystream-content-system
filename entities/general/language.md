@@ -1,5 +1,5 @@
-Language  Entities
-=================
+Language - Entities
+===================
 
 Table of Content
 ----------------

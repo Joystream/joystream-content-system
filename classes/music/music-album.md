@@ -42,7 +42,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ##### In Class index 0
 ```json
 {
-  "name": "Album Title",
+  "name": "Title",
   "description": "The title of the album",
   "type": "Text",
   "required": true,
@@ -53,7 +53,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ##### In Class index 1
 ```json
 {
-  "name": "Album Artist",
+  "name": "Artist",
   "description": "The artist, composer, band or group that published the album.",
   "type": "Text",
   "required": true,
@@ -64,7 +64,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ##### In Class index 2
 ```json
 {
-  "name": "Album Cover",
+  "name": "Thumbnail",
   "description": "URL to album cover art thumbnail: NOTE: Should be an https link to a square image, between 1400x1400 and 3000x3000 pixels, in JPEG or PNG format.",
   "required": true,
   "type": "Text",
@@ -75,7 +75,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ##### In Class index 3
 ```json
 {
-  "name": "About the Album",
+  "name": "Description",
   "description": "Information about the album and artist.",
   "required": true,
   "type": "Text",
@@ -87,7 +87,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ```json
 {
   "name": "First Released",
-  "description": "When the track was first released",
+  "description": "When the album was first released",
   "required": true,
   "type": "Int64"
 }
@@ -112,7 +112,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
   "type": "InternalVec",
   "maxItems": 3,
   "classId": "Music Mood"
-    }
+}
 ```
 
 ##### In Class index 7
@@ -216,7 +216,7 @@ To enforce a specific standard of tagging albums for the `music` content type.
 ```json
 {
   "name": "Explicit",
-  "description": "Indicates whether the track contains explicit material.",
+  "description": "Indicates whether the album contains explicit material.",
   "required": true,
   "type": "Bool"
 }

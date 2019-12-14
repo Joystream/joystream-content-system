@@ -64,11 +64,11 @@ To enforce a specific standard of tagging general videos for the `video` content
 ##### In Class index 2
 ```json
 {
-  "name": "About the Video",
-  "description": "A short description of the video",
+  "name": "Description",
+  "description": "Information about the video.",
   "required": true,
   "type": "Text",
-  "maxTextLength": 255
+  "maxTextLength": 4000
 }
 ```
 
@@ -86,16 +86,6 @@ To enforce a specific standard of tagging general videos for the `video` content
 ##### In Class index 4
 ```json
 {
-  "name": "Description",
-  "description": "Full description of the video",
-  "type": "Text",
-  "maxTextLength": 4000
-}
-```
-
-##### In Class index 5
-```json
-{
   "name": "First Released",
   "description": "When the video was first released",
   "required": true,
@@ -103,7 +93,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 6
+##### In Class index 5
 ```json
 {
   "name": "Category",
@@ -113,7 +103,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 7
+##### In Class index 6
 ```json
 {
   "name": "Link",
@@ -124,7 +114,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 8
+##### In Class index 7
 ```json
 {
   "name": "Object",
@@ -134,7 +124,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 9
+##### In Class index 8
 ```json
 {
   "name": "Publication Status",
@@ -145,7 +135,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 10
+##### In Class index 9
 ```json
 {
   "name": "Curation Status",
@@ -155,7 +145,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 11
+##### In Class index 10
 ```json
 {
   "name": "Explicit",
@@ -165,7 +155,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 12
+##### In Class index 11
 ```json
 {
   "name": "License",
@@ -176,8 +166,8 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 13
-```json 
+##### In Class index 12
+```json
 {
   "name": "Attribution",
   "description": "If the License requires attribution, add this here.",

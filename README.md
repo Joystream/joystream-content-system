@@ -116,27 +116,8 @@ This table contains all classes to be used for general purposes.
 |[Publication Status](classes/general/publication-status.md)      | `NA`  |    `v0`     | `cg`  | `co`  |
 |[Curation Status](classes/general/curation-status.md)            | `NA`  |    `v0`     | `cg`  | `NA`  |
 |[Featured Content](classes/general/featured-content.md)          | `NA`  |    `v0`     | `cg`  | `NA`  |
-<!--
-|[Year](classes/general/year.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Month](classes/general/month.md)                                | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Date](classes/general/date.md)                                  | `NA`  |    `v0`     | `cg`  | `cc`  |
--->
 
 ## Type Specific
-<!--
-### Books
-This table contains all classes to be used for specifically for books.
-**Note: Books will not be available as a content type for launch**
-
-|     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
-|-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Book](classes/books/book.md)                                    | `NA`  |    `NA`     | `cg`  | `NA`  |
-|[Book Category](classes/books/book-category.md)                  | `NA`  |    `NA`     | `cg`  | `cc`  |
-|[Book Item](classes/books/book-item.md)                          | `NA`  |    `NA`     | `co`  | `co`  |
-|[Book Item Entry](classes/books/book-item-entry.md)              | `NA`  |    `NA`     | `co`  | `co`  |
-|[Book Entry Format](classes/books/book-entry-format.md)          | `NA`  |    `NA`     | `cg`  | `cc`  |
-|[Book Series](classes/books/book-series.md)                      | `NA`  |    `NA`     | `co`  | `co`  |
--->
 
 ### Music
 This table contains all classes to be used for specifically for music.
@@ -148,8 +129,10 @@ This table contains all classes to be used for specifically for music.
 |[Music Genre](classes/music/music-genre.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Music Mood](classes/music/music-mood.md)                        | `NA`  |    `v0`     | `cg`  | `cc`  |
 |[Music Theme](classes/music/music-theme.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
+<!--
 |[Music Playlist Item](classes/music/music-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
 |[Music Playlist](classes/music/music-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
+-->
 
 ### Videos
 This table contains all classes to be used for specifically for videos.
@@ -158,5 +141,7 @@ This table contains all classes to be used for specifically for videos.
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
 |[Video](classes/videos/video.md)                                 | `NA`  |    `v0`     | `co`  | `co`  |
 |[Video Category](classes/videos/video-category.md)               | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Video Playlist Item](classes/videos/video-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
-|[Video Playlist](classes/videos/video-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
+<!--
+|[Video Playlist Item](classes/videos/video-playlist-item.md)     | `NA`  |    `NA`     | `co`  | `cc`  |
+|[Video Playlist](classes/videos/video-playlist.md)               | `NA`  |    `NA`     | `co`  | `co`  |
+-->
