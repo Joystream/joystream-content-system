@@ -1,7 +1,7 @@
-Name of Class - Class
+Music Genre - Class
 =====================
 
-Table of Content
+Table of Contents
 ----------------
 <!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
   - [ClassID](#classid)
@@ -17,7 +17,7 @@ Table of Content
 `NA`
 
 ## Explanation
-
+To enforce a specific standard of tagging genres for the `music` content type.
 
 ### Protection
 
@@ -25,8 +25,8 @@ Table of Content
 ## CreateClass JSON-schema
 ```json
 {
-  "name": "",
-  "description": ""
+  "name": "Music Genre",
+  "description": "Class for setting the genre for music."
 }
 ```
 
@@ -34,16 +34,18 @@ Table of Content
 
 |Version and Link                                           |   Testnet(s)     |Active|
 |:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/nameofClass.json)              | `Rome`           | `no` |
+| [v0](../../schemas/music/musicGenre0.json)                | `Rome`           | `yes`|
 
 ## Properties
 ### Rome
 ##### In Class index 0
 ```json
 {
-  "name": "",
-  "description": "",
-  "type": "",
+  "name": "Genre",
+  "description": "Genres for music.",
+  "required": true,
+  "type": "Text",
+  "maxTextLength": 100
 }
 ```
 <!--

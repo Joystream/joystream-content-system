@@ -9,18 +9,18 @@
       "maxTextLength": 255
     },
     {
-      "name": "Video Thumbnail",
+      "name": "Thumbnail",
       "description": "URL to video thumbnail: NOTE: Should be an https link to an image of ratio 16:9, ideally 1280 pixels wide by 720 pixels tall, with a minimum width of 640 pixels, in JPEG or PNG format.",
       "required": true,
       "type": "Text",
       "maxTextLength": 255
     },
     {
-      "name": "About the Video",
-      "description": "A short description of the video",
+      "name": "Description",
+      "description": "Information about the video.",
       "required": true,
       "type": "Text",
-      "maxTextLength": 255
+      "maxTextLength": 4000
     },
     {
       "name": "Language",
@@ -28,12 +28,6 @@
       "required": true,
       "type": "Internal",
       "classId": "Language"
-    },
-    {
-      "name": "Description",
-      "description": "Full description of the video",
-      "type": "Text",
-      "maxTextLength": 4000
     },
     {
       "name": "First Released",
