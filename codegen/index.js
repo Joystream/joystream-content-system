@@ -2,6 +2,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const rimraf = require("rimraf");
 const chalk = require('chalk');
+const path = require('path');
 
 // Format TypeScript code:
 //----------------------------------------
@@ -180,13 +181,19 @@ async function generateTsFiles () {
 
   schemaFolders.map(async folder => {
     const schemaFileNames = getFileOrDirNames(`${schemasDir}/${folder}`, false);
+    const schemaFileNamesJson = []
+    for (fileNames in schemaFileNames) {
+      if (path.extname(schemaFileNames[fileNames]) === ".json") {
+        schemaFileNamesJson.push(schemaFileNames[fileNames])
+      }
+    }
     const outFolder = `${outDir}/${folder}`;
 
     if (fs.existsSync(outFolder)) {
       rimraf.sync(outFolder);
     }
 
-    await Promise.all(schemaFileNames.map(fileName => {
+    await Promise.all(schemaFileNamesJson.map(fileName => {
       const outTsFile = generateTsClass(folder, fileName);
       return formatTs(outTsFile);
     }));
