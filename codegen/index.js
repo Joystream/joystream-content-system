@@ -141,7 +141,7 @@ export type ${className}GenericProp = {
 };
 
 type ${className}ClassType = {
-  [id in ${className}Type]: ${className}GenericProp
+  [id in ${className}PropId]: ${className}GenericProp
 };
 
 export const ${className}Class: ${className}ClassType = {
