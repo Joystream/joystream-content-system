@@ -37,23 +37,20 @@
     },
     {
       "name": "Genre",
-      "description": "The genre(s) of the album.",
-      "type": "InternalVec",
-      "maxItems": 3,
+      "description": "The genre of the album.",
+      "type": "Internal",
       "classId": "Music Genre"
     },
     {
       "name": "Mood",
-      "description": "The mood(s) of the album.",
-      "type": "InternalVec",
-      "maxItems": 3,
+      "description": "The mood of the album.",
+      "type": "Internal",
       "classId": "Music Mood"
     },
     {
       "name": "Theme",
-      "description": "The theme(s) of the album.",
-      "type": "InternalVec",
-      "maxItems": 3,
+      "description": "The theme of the album.",
+      "type": "Internal",
       "classId": "Music Theme"
     },
     {
@@ -67,8 +64,7 @@
       "name": "Language",
       "description": "The language of the song lyrics in the album.",
       "required": false,
-      "type": "InternalVec",
-      "maxItems": 5,
+      "type": "Internal",
       "classId": "Language"
     },
     {
