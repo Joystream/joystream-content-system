@@ -172,7 +172,7 @@ type ${className}ClassType = {
 export const ${className}Class: ${className}ClassType = {
   ${metaFieldsStrs.join(',\n')}
 };
-`);
+`).replace(/(\n){2,}/g, '\n\n');
 
   const outFolder = `${outDir}/${folder}`;
 
