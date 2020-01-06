@@ -17,6 +17,15 @@ async function formatTs(filePath) {
   }
 }
 
+// Global vars:
+//----------------------------------------
+
+const schemasDir = `../schemas`;
+const outDir = `./out`;
+
+const folderToFileNamesMap = {};
+const classNameToFolderMap = {};
+
 //----------------------------------------
 
 function toTsClassName (str) {
@@ -28,7 +37,7 @@ function toTsFieldName (str) {
   return _.camelCase(str);
 }
 
-function primitiveSubTypeToTsType (subType) {
+function primitiveSubTypeToTsType (subType, internalClassName) {
   switch (subType) {
     // Primitives:
 
@@ -42,20 +51,18 @@ function primitiveSubTypeToTsType (subType) {
     case 'Int64':       return 'number';
     case 'Text':        return 'string';
     
-    // TODO think about this.
-    // See field.classId for the name of internal class
-    case 'Internal':    return 'any';
+    case 'Internal':    return internalClassName + 'Type';
 
     default: throw new Error(`Unexpected Substrate type name: ${subType}`);
   }
 }
 
-function vectorSubTypeToTsType (subVecType) {
+function vectorSubTypeToTsType (subVecType, internalClassName) {
   const subType = subVecType.replace(/Vec$/, '');
-  return primitiveSubTypeToTsType(subType) + '[]';
+  return primitiveSubTypeToTsType(subType, internalClassName) + '[]';
 }
 
-function subTypeNameToTsType (subType) {
+function subTypeNameToTsType (subType, internalClassName) {
   switch (subType) {
     // Vectors:
 
@@ -68,16 +75,13 @@ function subTypeNameToTsType (subType) {
     case 'Int64Vec':
     case 'TextVec':
     case 'InternalVec':
-      return vectorSubTypeToTsType(subType);
+      return vectorSubTypeToTsType(subType, internalClassName);
 
     // Primitives or error:
     default:
-      return primitiveSubTypeToTsType(subType);
+      return primitiveSubTypeToTsType(subType, internalClassName);
   }
 }
-
-const schemasDir = `../schemas`;
-const outDir = `./out`;
 
 function generateFieldMeta (field) {
   const id = toTsFieldName(field.name);
@@ -89,18 +93,26 @@ function generateTsClass (folder, fileName) {
   const className = toTsClassName(schema.classId);
 
   const propIds = [];
+  const formValuesStrs = [];
   const typeFieldStrs = [];
   const metaFieldsStrs = [];
   const validations = [];
 
+  const usedInternalClasses = new Set();
+
   schema.newProperties.forEach(field => {
     const tsName = toTsFieldName(field.name);
-    const tsType = subTypeNameToTsType(field.type);
+
+    const internalClassName = field.classId && toTsClassName(field.classId);
+    if (internalClassName) {
+      usedInternalClasses.add(internalClassName);
+    }
+
+    const tsType = subTypeNameToTsType(field.type, internalClassName);
 
     propIds.push(tsName);
-
+    formValuesStrs.push(`${tsName}: string`);
     typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
-
     metaFieldsStrs.push(generateFieldMeta(field));
 
     if (field.type === 'Text') {
@@ -112,14 +124,27 @@ function generateTsClass (folder, fileName) {
     }
   });
 
+  const internalClassImports = [];
+  Array.from(usedInternalClasses).map(className => {
+    const internalFolder = classNameToFolderMap[className];
+    const basePath = internalFolder === folder ? '.' : `../${internalFolder}`
+    const str = `import { ${className}Type } from '${basePath}/${className}';`
+    internalClassImports.push(str);
+  });
+
   const tsContent = (`
 /** This file is generated based on JSON schema. Do not modify. */
 
 import * as Yup from 'yup';
+${internalClassImports.join('\n')}
 
 export const ${className}ValidationSchema = Yup.object().shape({
   ${validations.length ? validations.join(',\n') : '// No validation rules.'}
 });
+
+export type ${className}FormValues = {
+  ${formValuesStrs.join('\n')}
+};
 
 export type ${className}Type = {
   ${typeFieldStrs.join('\n')}
@@ -175,25 +200,35 @@ async function generateTsFiles () {
       .filter(dirent => dirent.isDirectory() === isDir)
       .map(dirent => dirent.name)
 
-  const schemaFolders = getFileOrDirNames(schemasDir, true)
+  const schemaFolders = getFileOrDirNames(schemasDir, true);
+  schemaFolders.map(folder => {
+    const folderFileNames = getFileOrDirNames(`${schemasDir}/${folder}`, false);
 
-  // console.log(schemaFolders);
+    const jsonFileNames = []
+    for (fileName of folderFileNames) {
+      if (path.extname(fileName) === ".json") {
+        jsonFileNames.push(fileName);
 
-  schemaFolders.map(async folder => {
-    const schemaFileNames = getFileOrDirNames(`${schemasDir}/${folder}`, false);
-    const schemaFileNamesJson = []
-    for (fileNames in schemaFileNames) {
-      if (path.extname(schemaFileNames[fileNames]) === ".json") {
-        schemaFileNamesJson.push(schemaFileNames[fileNames])
+        let className = fileName.replace(/[\d]*.json$/, '');
+        className = _.upperFirst(className);
+        classNameToFolderMap[className] = folder;
       }
     }
-    const outFolder = `${outDir}/${folder}`;
+    folderToFileNamesMap[folder] = jsonFileNames;
+  });
 
+  // console.log(schemaFolders);
+  // console.log(folderToFileNamesMap);
+  // console.log(classNameToFolderMap);
+
+  schemaFolders.map(async folder => {
+    const outFolder = `${outDir}/${folder}`;
     if (fs.existsSync(outFolder)) {
       rimraf.sync(outFolder);
     }
 
-    await Promise.all(schemaFileNamesJson.map(fileName => {
+    const fileNames = folderToFileNamesMap[folder];
+    await Promise.all(fileNames.map(fileName => {
       const outTsFile = generateTsClass(folder, fileName);
       return formatTs(outTsFile);
     }));
