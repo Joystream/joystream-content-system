@@ -6,7 +6,7 @@
       "description": "ContentId of object in the data directory",
       "type": "Text",
       "required": true,
-      "maxTextLength": 68
+      "maxTextLength": 66
     }
   ]
 }
