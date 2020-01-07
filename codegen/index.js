@@ -151,7 +151,7 @@ export type ${className}Type = {
   ${typeFieldStrs.join('\n')}
 };
 
-export const ${className}Codec = new EntityCodec<${className}Type>();
+export class ${className}Codec extends EntityCodec<${className}Type> {}
 
 export type ${className}PropId =
   ${propIds.map(id => `'${id}'`).join(' |\n  ')}
