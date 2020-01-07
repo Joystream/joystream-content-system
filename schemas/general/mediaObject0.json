@@ -2,8 +2,8 @@
   "classId": "Media Object",
   "newProperties": [
     {
-      "name": "Object",
-      "description": "ContentId of object in the data directory",
+      "name": "Value",
+      "description": "ContentId of object in the data directory. Hex format expected.",
       "type": "Text",
       "required": true,
       "maxTextLength": 66
