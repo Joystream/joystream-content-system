@@ -136,6 +136,7 @@ function generateTsClass (folder, fileName) {
 /** This file is generated based on JSON schema. Do not modify. */
 
 import * as Yup from 'yup';
+import { EntityCodec } from '@joystream/types/versioned-store/EntityCodec';
 ${internalClassImports.join('\n')}
 
 export const ${className}ValidationSchema = Yup.object().shape({
@@ -149,6 +150,8 @@ export type ${className}FormValues = {
 export type ${className}Type = {
   ${typeFieldStrs.join('\n')}
 };
+
+export const ${className}Codec = new EntityCodec<${className}Type>();
 
 export type ${className}PropId =
   ${propIds.map(id => `'${id}'`).join(' |\n  ')}
