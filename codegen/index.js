@@ -88,6 +88,31 @@ function generateFieldMeta (field) {
   return (`${id}: ${JSON.stringify({ id, ...field }, null , 2)}`);
 }
 
+function getDefaultJsValue (tsType, internalClassName) {
+  if (internalClassName) {
+    return 0; // id
+  } else if (tsType.endsWith('[]')) {
+    return '[]';
+  }
+
+  switch (tsType) {
+    case 'string':    return "''";
+    case 'boolean':   return "false";
+    case 'number':    return '0';
+  }
+
+  return 'undefined'
+}
+
+function plainObjectTypeToFormValueType (tsType, internalClassName) {
+  if (internalClassName) {
+    // id(s) of referred entity.
+    return 'number' + (tsType.endsWith('[]') ? '[]' : '');
+  }
+
+  return tsType;
+}
+
 function generateTsClass (folder, fileName) {
   const schema = JSON.parse(fs.readFileSync(`${schemasDir}/${folder}/${fileName}`, 'utf8'));
   const className = toTsClassName(schema.classId);
@@ -97,6 +122,7 @@ function generateTsClass (folder, fileName) {
   const typeFieldStrs = [];
   const metaFieldsStrs = [];
   const validations = [];
+  const plainFieldToFormValueArr = [];
 
   const usedInternalClasses = new Set();
 
@@ -109,9 +135,19 @@ function generateTsClass (folder, fileName) {
     }
 
     const tsType = subTypeNameToTsType(field.type, internalClassName);
+    const isVec = tsType.endsWith('[]');
 
+    const defVal = getDefaultJsValue(tsType, internalClassName);
+    if (internalClassName) {
+      const questMark = field.required ? '' : '?';
+      const idPart = isVec ? `map(x => x.id) || []` : `id || 0`
+      plainFieldToFormValueArr.push(`${tsName}: entity && entity.${tsName}${questMark}.${idPart}`);
+    } else {
+      plainFieldToFormValueArr.push(`${tsName}: entity && entity.${tsName} || ${defVal}`);
+    }
+    
     propIds.push(tsName);
-    formValuesStrs.push(`${tsName}: string`);
+    formValuesStrs.push(`${tsName}: ${plainObjectTypeToFormValueType(tsType, internalClassName)}`);
     typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
     metaFieldsStrs.push(generateFieldMeta(field));
 
@@ -148,10 +184,17 @@ export type ${className}FormValues = {
 };
 
 export type ${className}Type = {
+  id: number
   ${typeFieldStrs.join('\n')}
 };
 
 export class ${className}Codec extends EntityCodec<${className}Type> {}
+
+export function ${className}ToFormValues (entity?: ${className}Type): ${className}FormValues {
+  return {
+    ${plainFieldToFormValueArr.join(',\n    ')}
+  }
+}
 
 export type ${className}PropId =
   ${propIds.map(id => `'${id}'`).join(' |\n  ')}
