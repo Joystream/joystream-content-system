@@ -178,7 +178,7 @@ function generateTsClass (folder, fileName) {
     } else if (isDateField) {
       validations.push(`${tsName}: Yup.string()
     .required('This field is required')
-    .test('valid-date', 'Invalid date. Valid formats for date: yyyy-mm-dd or yyyy-mm or yyyy.', (val?: any) => {
+    .test('valid-date', 'Invalid date. Valid date formats are yyyy-mm-dd or yyyy-mm or yyyy.', (val?: any) => {
       return moment(val as any).isValid();
     })`)
     }
