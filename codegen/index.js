@@ -144,9 +144,16 @@ function generateTsClass (folder, fileName) {
 
     const tsType = subTypeNameToTsType(field.type, internalClassName);
     const isVec = tsType.endsWith('[]');
-
+    const isDateField = dateFields.has(tsName);
     const defVal = getDefaultJsValue(tsType, internalClassName);
-    if (internalClassName) {
+
+    if (isDateField) {
+      if (!importedMoment) {
+        imports.push("import moment from 'moment';");
+        importedMoment = true;
+      }
+      plainFieldToFormValueArr.push(`${tsName}: entity && moment(entity.${tsName} * 1000).format('YYYY-MM-DD') || ''`);
+    } else if (internalClassName) {
       const questMark = field.required ? '' : '?';
       const idPart = isVec ? `map(x => x.id) || []` : `id || 0`
       plainFieldToFormValueArr.push(`${tsName}: entity && entity.${tsName}${questMark}.${idPart}`);
@@ -155,7 +162,10 @@ function generateTsClass (folder, fileName) {
     }
     
     propIds.push(tsName);
-    formValuesStrs.push(`${tsName}: ${plainObjectTypeToFormValueType(tsType, internalClassName)}`);
+
+    const formValueType = isDateField ? 'string' : plainObjectTypeToFormValueType(tsType, internalClassName);
+    formValuesStrs.push(`${tsName}: ${formValueType}`);
+
     typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
     metaFieldsStrs.push(generateFieldMeta(field));
 
@@ -165,11 +175,7 @@ function generateTsClass (folder, fileName) {
       const requiredStr = field.required ? `${indent}.required('This field is required')` : '';
       const maxLenStr = field.maxTextLength ? `${indent}.max(${maxTextLength}, 'Text is too long. Maximum length is ${maxTextLength} chars.')` : '';
       validations.push(`${tsName}: Yup.string()${requiredStr}${maxLenStr}`)
-    } else if (dateFields.has(tsName)) {
-      if (!importedMoment) {
-        imports.push("import moment from 'moment';");
-        importedMoment = true;
-      }
+    } else if (isDateField) {
       validations.push(`${tsName}: Yup.string()
     .required('This field is required')
     .test('valid-date', 'Invalid date. Valid formats for date: yyyy-mm-dd or yyyy-mm or yyyy.', (val?: any) => {
