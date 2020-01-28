@@ -26,6 +26,8 @@ const outDir = `./out`;
 const folderToFileNamesMap = {};
 const classNameToFolderMap = {};
 
+const dateFields = new Set(['firstReleased']);
+
 //----------------------------------------
 
 function toTsClassName (str) {
@@ -117,6 +119,11 @@ function generateTsClass (folder, fileName) {
   const schema = JSON.parse(fs.readFileSync(`${schemasDir}/${folder}/${fileName}`, 'utf8'));
   const className = toTsClassName(schema.classId);
 
+  const imports = [
+    "import * as Yup from 'yup';",
+    "import { EntityCodec } from '@joystream/types/versioned-store/EntityCodec';",
+  ];
+
   const propIds = [];
   const formValuesStrs = [];
   const typeFieldStrs = [];
@@ -125,6 +132,7 @@ function generateTsClass (folder, fileName) {
   const plainFieldToFormValueArr = [];
 
   const usedInternalClasses = new Set();
+  let importedMoment = false;
 
   schema.newProperties.forEach(field => {
     const tsName = toTsFieldName(field.name);
@@ -157,23 +165,30 @@ function generateTsClass (folder, fileName) {
       const requiredStr = field.required ? `${indent}.required('This field is required')` : '';
       const maxLenStr = field.maxTextLength ? `${indent}.max(${maxTextLength}, 'Text is too long. Maximum length is ${maxTextLength} chars.')` : '';
       validations.push(`${tsName}: Yup.string()${requiredStr}${maxLenStr}`)
+    } else if (dateFields.has(tsName)) {
+      if (!importedMoment) {
+        imports.push("import moment from 'moment';");
+        importedMoment = true;
+      }
+      validations.push(`${tsName}: Yup.string()
+    .required('This field is required')
+    .test('valid-date', 'Invalid date. Valid formats for date: yyyy-mm-dd or yyyy-mm or yyyy.', (val?: any) => {
+      return moment(val as any).isValid();
+    })`)
     }
   });
 
-  const internalClassImports = [];
   Array.from(usedInternalClasses).map(className => {
     const internalFolder = classNameToFolderMap[className];
     const basePath = internalFolder === folder ? '.' : `../${internalFolder}`
     const str = `import { ${className}Type } from '${basePath}/${className}';`
-    internalClassImports.push(str);
+    imports.push(str);
   });
 
   const tsContent = (`
 /** This file is generated based on JSON schema. Do not modify. */
 
-import * as Yup from 'yup';
-import { EntityCodec } from '@joystream/types/versioned-store/EntityCodec';
-${internalClassImports.join('\n')}
+${imports.join('\n')}
 
 export const ${className}ValidationSchema = Yup.object().shape({
   ${validations.length ? validations.join(',\n') : '// No validation rules.'}
