@@ -118,7 +118,7 @@
     {
       "name": "Channel Id",
       "description": "Id of the channel this music track is published to.",
-      "type": "Int64"
+      "type": "Uint64"
     }
   ]
 }

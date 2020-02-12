@@ -128,7 +128,7 @@
     {
       "name": "Channel Id",
       "description": "Id of the channel this music album is published to.",
-      "type": "Int64"
+      "type": "Uint64"
     }
   ]
 }
