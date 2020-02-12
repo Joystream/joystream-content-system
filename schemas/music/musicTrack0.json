@@ -114,6 +114,11 @@
       "description": "If the License requires attribution, add this here.",
       "type": "Text",
       "maxTextLength": 255
+    },
+    {
+      "name": "Channel Id",
+      "description": "Id of the channel this music track is published to.",
+      "type": "Int64"
     }
   ]
 }
