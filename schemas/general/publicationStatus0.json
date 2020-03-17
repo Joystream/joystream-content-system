@@ -2,7 +2,7 @@
   "classId": "Publication Status",
   "newProperties": [
     {
-      "name": "Status",
+      "name": "Value",
       "description": "The publication status of the content in the content directory.",
       "required": true,
       "type": "Text",

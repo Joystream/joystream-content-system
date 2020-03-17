@@ -2,7 +2,7 @@
   "classId": "Video Category",
   "newProperties": [
     {
-      "name": "Category",
+      "name": "Value",
       "description": "Categories for videos.",
       "type": "Text",
       "required": true,

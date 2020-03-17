@@ -2,7 +2,7 @@
   "classId": "Music Theme",
   "newProperties": [
     {
-      "name": "Theme",
+      "name": "Value",
       "description": "Themes for music.",
       "required": true,
       "type": "Text",

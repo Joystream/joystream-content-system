@@ -2,7 +2,7 @@
   "classId": "Curation Status",
   "newProperties": [
     {
-      "name": "Status",
+      "name": "Value",
       "description": "The curator publication status of the content in the content directory.",
       "required": true,
       "type": "Text",

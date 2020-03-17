@@ -2,7 +2,7 @@
   "classId": "Music Genre",
   "newProperties": [
     {
-      "name": "Genre",
+      "name": "Value",
       "description": "Genres for music.",
       "required": true,
       "type": "Text",

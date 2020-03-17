@@ -17,6 +17,17 @@ async function formatTs(filePath) {
   }
 }
 
+// Global vars:
+//----------------------------------------
+
+const schemasDir = `../schemas`;
+const outDir = `./out`;
+
+const folderToFileNamesMap = {};
+const classNameToFolderMap = {};
+
+const dateFields = new Set(['firstReleased']);
+
 //----------------------------------------
 
 function toTsClassName (str) {
@@ -28,7 +39,7 @@ function toTsFieldName (str) {
   return _.camelCase(str);
 }
 
-function primitiveSubTypeToTsType (subType) {
+function primitiveSubTypeToTsType (subType, internalClassName) {
   switch (subType) {
     // Primitives:
 
@@ -42,20 +53,18 @@ function primitiveSubTypeToTsType (subType) {
     case 'Int64':       return 'number';
     case 'Text':        return 'string';
     
-    // TODO think about this.
-    // See field.classId for the name of internal class
-    case 'Internal':    return 'any';
+    case 'Internal':    return internalClassName + 'Type';
 
     default: throw new Error(`Unexpected Substrate type name: ${subType}`);
   }
 }
 
-function vectorSubTypeToTsType (subVecType) {
+function vectorSubTypeToTsType (subVecType, internalClassName) {
   const subType = subVecType.replace(/Vec$/, '');
-  return primitiveSubTypeToTsType(subType) + '[]';
+  return primitiveSubTypeToTsType(subType, internalClassName) + '[]';
 }
 
-function subTypeNameToTsType (subType) {
+function subTypeNameToTsType (subType, internalClassName) {
   switch (subType) {
     // Vectors:
 
@@ -68,39 +77,96 @@ function subTypeNameToTsType (subType) {
     case 'Int64Vec':
     case 'TextVec':
     case 'InternalVec':
-      return vectorSubTypeToTsType(subType);
+      return vectorSubTypeToTsType(subType, internalClassName);
 
     // Primitives or error:
     default:
-      return primitiveSubTypeToTsType(subType);
+      return primitiveSubTypeToTsType(subType, internalClassName);
   }
 }
-
-const schemasDir = `../schemas`;
-const outDir = `./out`;
 
 function generateFieldMeta (field) {
   const id = toTsFieldName(field.name);
   return (`${id}: ${JSON.stringify({ id, ...field }, null , 2)}`);
 }
 
+function getDefaultJsValue (tsType, internalClassName) {
+  if (internalClassName) {
+    return 0; // id
+  } else if (tsType.endsWith('[]')) {
+    return '[]';
+  }
+
+  switch (tsType) {
+    case 'string':    return "''";
+    case 'boolean':   return "false";
+    case 'number':    return '0';
+  }
+
+  return 'undefined'
+}
+
+function plainObjectTypeToFormValueType (tsType, internalClassName) {
+  if (internalClassName) {
+    // id(s) of referred entity.
+    return 'number' + (tsType.endsWith('[]') ? '[]' : '');
+  }
+
+  return tsType;
+}
+
 function generateTsClass (folder, fileName) {
   const schema = JSON.parse(fs.readFileSync(`${schemasDir}/${folder}/${fileName}`, 'utf8'));
   const className = toTsClassName(schema.classId);
 
+  const imports = [
+    "import * as Yup from 'yup';",
+    "import { EntityCodec } from '@joystream/types/versioned-store/EntityCodec';",
+  ];
+
   const propIds = [];
+  const formValuesStrs = [];
   const typeFieldStrs = [];
   const metaFieldsStrs = [];
   const validations = [];
+  const plainFieldToFormValueArr = [];
+
+  const usedInternalClasses = new Set();
+  let importedMoment = false;
 
   schema.newProperties.forEach(field => {
     const tsName = toTsFieldName(field.name);
-    const tsType = subTypeNameToTsType(field.type);
 
+    const internalClassName = field.classId && toTsClassName(field.classId);
+    if (internalClassName) {
+      usedInternalClasses.add(internalClassName);
+    }
+
+    const tsType = subTypeNameToTsType(field.type, internalClassName);
+    const isVec = tsType.endsWith('[]');
+    const isDateField = dateFields.has(tsName);
+    const defVal = getDefaultJsValue(tsType, internalClassName);
+
+    if (isDateField) {
+      if (!importedMoment) {
+        imports.push("import moment from 'moment';");
+        importedMoment = true;
+      }
+      plainFieldToFormValueArr.push(`${tsName}: entity && moment(entity.${tsName} * 1000).format('YYYY-MM-DD') || ''`);
+    } else if (internalClassName) {
+      const questMark = field.required ? '' : '?';
+      const idPart = isVec ? `map(x => x.id) || []` : `id || 0`
+      plainFieldToFormValueArr.push(`${tsName}: entity && entity.${tsName}${questMark}.${idPart}`);
+    } else {
+      plainFieldToFormValueArr.push(`${tsName}: entity && entity.${tsName} || ${defVal}`);
+    }
+    
     propIds.push(tsName);
 
-    typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
+    const formValueType = isDateField ? 'string' : plainObjectTypeToFormValueType(tsType, internalClassName);
+    formValuesStrs.push(`${tsName}: ${formValueType}`);
 
+    typeFieldStrs.push(`${tsName}${field.required ? '' : '?'}: ${tsType}`);
     metaFieldsStrs.push(generateFieldMeta(field));
 
     if (field.type === 'Text') {
@@ -109,21 +175,47 @@ function generateTsClass (folder, fileName) {
       const requiredStr = field.required ? `${indent}.required('This field is required')` : '';
       const maxLenStr = field.maxTextLength ? `${indent}.max(${maxTextLength}, 'Text is too long. Maximum length is ${maxTextLength} chars.')` : '';
       validations.push(`${tsName}: Yup.string()${requiredStr}${maxLenStr}`)
+    } else if (isDateField) {
+      validations.push(`${tsName}: Yup.string()
+    .required('This field is required')
+    .test('valid-date', 'Invalid date. Valid date formats are yyyy-mm-dd or yyyy-mm or yyyy.', (val?: any) => {
+      return moment(val as any).isValid();
+    })`)
     }
+  });
+
+  Array.from(usedInternalClasses).map(className => {
+    const internalFolder = classNameToFolderMap[className];
+    const basePath = internalFolder === folder ? '.' : `../${internalFolder}`
+    const str = `import { ${className}Type } from '${basePath}/${className}';`
+    imports.push(str);
   });
 
   const tsContent = (`
 /** This file is generated based on JSON schema. Do not modify. */
 
-import * as Yup from 'yup';
+${imports.join('\n')}
 
 export const ${className}ValidationSchema = Yup.object().shape({
   ${validations.length ? validations.join(',\n') : '// No validation rules.'}
 });
 
+export type ${className}FormValues = {
+  ${formValuesStrs.join('\n')}
+};
+
 export type ${className}Type = {
+  id: number
   ${typeFieldStrs.join('\n')}
 };
+
+export class ${className}Codec extends EntityCodec<${className}Type> {}
+
+export function ${className}ToFormValues (entity?: ${className}Type): ${className}FormValues {
+  return {
+    ${plainFieldToFormValueArr.join(',\n    ')}
+  }
+}
 
 export type ${className}PropId =
   ${propIds.map(id => `'${id}'`).join(' |\n  ')}
@@ -141,13 +233,13 @@ export type ${className}GenericProp = {
 };
 
 type ${className}ClassType = {
-  [id in ${className}Type]: ${className}GenericProp
+  [id in ${className}PropId]: ${className}GenericProp
 };
 
 export const ${className}Class: ${className}ClassType = {
   ${metaFieldsStrs.join(',\n')}
 };
-`);
+`).replace(/(\n){2,}/g, '\n\n');
 
   const outFolder = `${outDir}/${folder}`;
 
@@ -175,25 +267,35 @@ async function generateTsFiles () {
       .filter(dirent => dirent.isDirectory() === isDir)
       .map(dirent => dirent.name)
 
-  const schemaFolders = getFileOrDirNames(schemasDir, true)
+  const schemaFolders = getFileOrDirNames(schemasDir, true);
+  schemaFolders.map(folder => {
+    const folderFileNames = getFileOrDirNames(`${schemasDir}/${folder}`, false);
 
-  // console.log(schemaFolders);
+    const jsonFileNames = []
+    for (fileName of folderFileNames) {
+      if (path.extname(fileName) === ".json") {
+        jsonFileNames.push(fileName);
 
-  schemaFolders.map(async folder => {
-    const schemaFileNames = getFileOrDirNames(`${schemasDir}/${folder}`, false);
-    const schemaFileNamesJson = []
-    for (fileNames in schemaFileNames) {
-      if (path.extname(schemaFileNames[fileNames]) === ".json") {
-        schemaFileNamesJson.push(schemaFileNames[fileNames])
+        let className = fileName.replace(/[\d]*.json$/, '');
+        className = _.upperFirst(className);
+        classNameToFolderMap[className] = folder;
       }
     }
-    const outFolder = `${outDir}/${folder}`;
+    folderToFileNamesMap[folder] = jsonFileNames;
+  });
 
+  // console.log(schemaFolders);
+  // console.log(folderToFileNamesMap);
+  // console.log(classNameToFolderMap);
+
+  schemaFolders.map(async folder => {
+    const outFolder = `${outDir}/${folder}`;
     if (fs.existsSync(outFolder)) {
       rimraf.sync(outFolder);
     }
 
-    await Promise.all(schemaFileNamesJson.map(fileName => {
+    const fileNames = folderToFileNamesMap[folder];
+    await Promise.all(fileNames.map(fileName => {
       const outTsFile = generateTsClass(folder, fileName);
       return formatTs(outTsFile);
     }));
