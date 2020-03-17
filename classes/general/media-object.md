@@ -3,7 +3,7 @@ Media Object - Class
 
 Table of Content
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -11,11 +11,13 @@ Table of Content
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
+      - [In Class index 0](#in-class-index-0)
+      - [In Class index 1](#in-class-index-1)
   - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`1`
 
 ## Explanation
 Entities in this Class
@@ -33,13 +35,13 @@ In the current implementation, there are no restrictions as to what can be passe
 ```
 
 ## Schemas
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/mediaObject0.json)             | `Rome`           | `no` |
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/general/mediaObject0.json)             | `Rome`           |`true` |
 
 ## Properties
 ### Rome
-##### In Class index 0
+#### In Class index 0
 ```json
 {
   "name": "Object",
@@ -47,6 +49,14 @@ In the current implementation, there are no restrictions as to what can be passe
   "type": "Text",
   "required": true,
   "maxTextLength": 68
+}
+```
+#### In Class index 1
+```json
+{
+  "name": "Channel Id",
+  "description": "Id of the channel this object is published under.",
+  "type": "Uint64"
 }
 ```
 
