@@ -59,8 +59,8 @@
       "classId": "Music Theme"
     },
     {
-      "name": "Link",
-      "description": "A link to the artist page.",
+      "name": "Links",
+      "description": "Links to the artist site or social media pages.",
       "type": "TextVec",
       "maxItems": 5,
       "maxTextLength": 255
@@ -117,7 +117,7 @@
     },
     {
       "name": "Channel Id",
-      "description": "Id of the channel this music track is published to.",
+      "description": "Id of the channel this track is published under.",
       "type": "Uint64"
     }
   ]
