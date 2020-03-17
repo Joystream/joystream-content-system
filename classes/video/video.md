@@ -14,7 +14,7 @@ Table of Contents
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`7`
 
 ## Explanation
 To enforce a specific standard of tagging general videos for the `video` content type.
@@ -32,14 +32,14 @@ To enforce a specific standard of tagging general videos for the `video` content
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/video/video0.json)                     | `Rome`           | `yes`|
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/video/video0.json)                     | `Rome`           |`true` |
 
 ## Properties
 ### Rome
 
-##### In Class index 0
+#### In Class index 0
 ```json
 {
   "name": "Title",
@@ -50,7 +50,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 1
+#### In Class index 1
 ```json
 {
   "name": "Video Thumbnail",
@@ -61,7 +61,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 2
+#### In Class index 2
 ```json
 {
   "name": "Description",
@@ -72,7 +72,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 3
+#### In Class index 3
 ```json
 {
   "name": "Language",
@@ -83,7 +83,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 4
+#### In Class index 4
 ```json
 {
   "name": "First Released",
@@ -93,7 +93,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 5
+#### In Class index 5
 ```json
 {
   "name": "Category",
@@ -103,7 +103,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 6
+#### In Class index 6
 ```json
 {
   "name": "Link",
@@ -114,7 +114,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 7
+#### In Class index 7
 ```json
 {
   "name": "Object",
@@ -124,7 +124,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 8
+#### In Class index 8
 ```json
 {
   "name": "Publication Status",
@@ -135,7 +135,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 9
+#### In Class index 9
 ```json
 {
   "name": "Curation Status",
@@ -145,7 +145,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 10
+#### In Class index 10
 ```json
 {
   "name": "Explicit",
@@ -155,7 +155,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 11
+#### In Class index 11
 ```json
 {
   "name": "License",
@@ -166,7 +166,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 }
 ```
 
-##### In Class index 12
+#### In Class index 12
 ```json
 {
   "name": "Attribution",

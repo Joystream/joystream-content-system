@@ -3,7 +3,7 @@ Video Category - Class
 
 Table of Contents
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -11,10 +11,11 @@ Table of Contents
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
+  - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`8`
 
 ## Explanation
 To enforce a specific standard of tagging categories for the `video` content type.
@@ -26,22 +27,22 @@ To enforce a specific standard of tagging categories for the `video` content typ
 ```json
 {
   "name": "Video Category",
-  "description": "Class for setting the category for videos."
+  "description": "Class for setting the category for videos in the Video class."
 }
 ```
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/video/videoCategory0.json)             | `Rome`           | `yes`|
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/video/videoCategory0.json)             | `Rome`           |`true` |
 
 ## Properties
 ### Rome
 ##### In Class index 0
 ```json
 {
-  "name": "Category",
+  "name": "Value",
   "description": "Categories for videos.",
   "type": "Text",
   "required": true,
@@ -49,8 +50,7 @@ To enforce a specific standard of tagging categories for the `video` content typ
 }
 ```
 
-<!--
+
 ## Entities
 If applicable:
 [Link](../../entities/general/name-of-class.md)
--->
