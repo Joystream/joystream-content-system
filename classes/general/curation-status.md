@@ -11,7 +11,6 @@ Table of Content
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
-      - [In Class index 0](#in-class-index-0)
   - [Entities](#entities)
 <!-- TOC END -->
 
@@ -43,11 +42,11 @@ It needs to be clear for the `publisher` why a `Content Curator` has made perfor
 ##### In Class index 0
 ```json
 {
-  "name": "Status",
+  "name": "Value",
   "description": "The curator publication status of the content in the content directory.",
   "required": true,
   "type": "Text",
-  "maxTextLength": 50
+  "maxTextLength": 255
 }
 ```
 

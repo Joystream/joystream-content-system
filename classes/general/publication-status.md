@@ -44,7 +44,7 @@ It needs to be clear for the `publisher` whether or not their content is availab
 #### In Class index 0
 ```json
 {
-  "name": "Status",
+  "name": "Value",
   "description": "The publication status of the content in the content directory.",
   "required": true,
   "type": "Text",

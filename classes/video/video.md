@@ -53,7 +53,7 @@ To enforce a specific standard of tagging general videos for the `video` content
 #### In Class index 1
 ```json
 {
-  "name": "Video Thumbnail",
+  "name": "Thumbnail",
   "description": "URL to video thumbnail: NOTE: Should be an https link to an image of ratio 16:9, ideally 1280 pixels wide by 720 pixels tall, with a minimum width of 640 pixels, in JPEG or PNG format.",
   "required": true,
   "type": "Text",
@@ -106,8 +106,8 @@ To enforce a specific standard of tagging general videos for the `video` content
 #### In Class index 6
 ```json
 {
-  "name": "Link",
-  "description": "A link to the creators page.",
+  "name": "Links",
+  "description": "Links to the creators pages.",
   "type": "TextVec",
   "maxItems": 5,
   "maxTextLength": 255
@@ -173,6 +173,15 @@ To enforce a specific standard of tagging general videos for the `video` content
   "description": "If the License requires attribution, add this here.",
   "type": "Text",
   "maxTextLength": 255
+}
+```
+
+#### In Class index 13
+```json
+{
+  "name": "Channel Id",
+  "description": "Id of the channel this video is published under.",
+  "type": "Uint64"
 }
 ```
 

@@ -44,11 +44,11 @@ It needs to be clear for the `publisher` whether or not their content is availab
 #### In Class index 0
 ```json
 {
-  "name": "License",
+  "name": "Value",
   "description": "The license of which the content is originally published under.",
   "type": "Text",
   "required": true,
-  "maxTextLength": 200
+  "maxTextLength": 255
 }
 ```
 

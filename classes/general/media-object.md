@@ -44,7 +44,7 @@ In the current implementation, there are no restrictions as to what can be passe
 #### In Class index 0
 ```json
 {
-  "name": "Object",
+  "name": "Value",
   "description": "ContentId of object in the data directory",
   "type": "Text",
   "required": true,
