@@ -52,5 +52,4 @@ To enforce a specific standard of tagging categories for the `video` content typ
 
 
 ## Entities
-If applicable:
-[Link](../../entities/general/name-of-class.md)
+[Link](../../entities/video/video-category.md)

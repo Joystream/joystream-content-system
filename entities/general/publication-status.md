@@ -21,8 +21,8 @@ The table below lists all available entities:
 
 | Entity ID | Value    | Explanation                             |
 |-----------|----------|-----------------------------------------|
-| 185       |"Unlisted"| Not published (eg. not discoverable)    |
-| 186       |"Public"  | Published (eg. discoverable)            |
+| 185       |"Public"  | Published (eg. discoverable)            |
+| 186       |"Unlisted"| Not published (eg. not discoverable)    |
 
 **Note:**
 Although this could easily be replaced property type `Bool`, it was decided to use `Text` so that additional values can be added to later schemas with backwards compatibility.
