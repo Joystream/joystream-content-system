@@ -19,11 +19,11 @@ Table of Content
 `3`
 
 ## Explanation
-To enforce a specific standard of tagging whether or not the `publisher` of the content want to content to be accessible or not across all content types.
+To enforce a specific standard of licenses to be applied to each content added to the content directory.
 
 ### Protection
 
-It needs to be clear for the `publisher` whether or not their content is available for discovery, and by implication, consumption or to download.
+The concept needs to a follow strict standard. If all content creators could create a new `entity` in this `Class`, it could result in both duplicates, and licenses that doesn't allow for sharing, regardless of attribution.
 
 ## CreateClass JSON-schema
 ```json
