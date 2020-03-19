@@ -23,7 +23,7 @@ Although the actual extrinsics and runtime operations happens through the two [s
 ## JSON-schemas
 This [versioned-store-js](https://github.com/Joystream/versioned-store-js) tool allows us to use "human readable" `JSON-schemas`, which must not be confused with [schemas](../README.md#schemas) or [validation JSON-schemas](#validation-schemas).
 
-The advantage of using `JSON-schemas` that follows the [JSON Schema standard](https://json-schema.org/) is that it's both structured enough to avoid confusion, yet far easier to learn and parse than `rust` code. The `JSON-schemas` can be used to perform all 6 [operations](#versioned-store-write-operations) as the [versioned-store-js](https://github.com/Joystream/versioned-store-js) will use them as input, validate them, construct the `extrinsics`, and broadcast them.
+The advantage of using `JSON-schemas` that follows the [JSON Schema standard](https://json-schema.org/) is that they are both structured enough to avoid confusion, yet far easier to learn and parse than `rust` code. The `JSON-schemas` can be used to perform all 6 [operations](#versioned-store-write-operations) as the [versioned-store-js](https://github.com/Joystream/versioned-store-js) will use them as input, validate them, construct the `extrinsics`, and broadcast them.
 
 ## Versioned Store Write Operations
 Currently, there are 6 kinds of operations that can be performed on the `versioned-store`. The table below lists the actions, the default permissions, and what the action will return. The links in the "Action" columns leads to the [validation JSON-schemas](#validation-schemas) for each operation.
