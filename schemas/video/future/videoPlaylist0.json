@@ -1,0 +1,72 @@
+{
+  "classId": "Video Playlist",
+  "newProperties": [
+    {
+      "name": "Title",
+      "description": "The title of the playlist",
+      "type": "Text",
+      "required": true,
+      "maxTextLength": 255
+    },
+    {
+      "name": "Thumbnail",
+      "description": "URL to playlist thumbnail: NOTE: Should be an https link to an image of ratio 16:9, ideally 1280 pixels wide by 720 pixels tall, with a minimum width of 640 pixels, in JPEG or PNG format.",
+      "required": true,
+      "type": "Text",
+      "maxTextLength": 255
+    },
+    {
+      "name": "Description",
+      "description": "Information about the playlist.",
+      "required": true,
+      "type": "Text",
+      "maxTextLength": 4000
+    },
+    {
+      "name": "Language",
+      "description": "The main language used in the playlist.",
+      "required": true,
+      "type": "Internal",
+      "classId": "Language"
+    },
+    {
+      "name": "Category",
+      "description": "The category of the playlist.",
+      "type": "Internal",
+      "classId": "Video Category"
+    },
+    {
+      "name": "Link",
+      "description": "A link to the creators page.",
+      "type": "TextVec",
+      "maxItems": 5,
+      "maxTextLength": 255
+    },
+    {
+      "name": "Videos",
+      "description": "The videos in the playlist.",
+      "type": "InternalVec",
+      "maxItems": 100,
+      "classId": "Video Playlist Item"
+    },
+    {
+      "name": "Publication Status",
+      "description": "The publication status of the playlist.",
+      "required": true,
+      "type": "Internal",
+      "classId": "Publication Status"
+    },
+    {
+      "name": "Curation Status",
+      "description": "The publication status of the playlist set by the a content curator on the platform.",
+      "type": "Internal",
+      "classId": "Curation Status"
+    },
+    {
+      "name": "Explicit",
+      "description": "Indicates whether the playlist contains explicit material.",
+      "required": true,
+      "type": "Bool"
+    }
+  ]
+}

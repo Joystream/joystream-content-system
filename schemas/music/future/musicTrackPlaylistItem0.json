@@ -1,0 +1,11 @@
+{
+  "classId": "Music Track Playlist Item",
+  "newProperties": [
+    {
+      "name": "Track",
+      "description": "The track entry.",
+      "type": "Internal",
+      "classId": "Music Track"
+    }
+  ]
+}
