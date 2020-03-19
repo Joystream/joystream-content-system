@@ -38,18 +38,18 @@ Currently, there are 6 kinds of operations that can be performed on the `version
 | [Remove Entity Properties](schema-standards/RemoveEntityProperties.schema.json)       |`cg,co,cc`,`2.`   | z                |
 
 1. For `Create Entity`:
-    - `cg`: some classes are protected, meaning only  can create entities in these classes.
-    - An owner of a `video channel`, can not create entities in classes that belongs exclusively to `music`. (If the `Member` also owns a `music channel` , the `Member` must use the `key(s)` associated with that channel)
-    - Some classes allows all `Content Creators` to create entities in this class
+    - `cg`: some classes are protected, meaning that only `cg` can create entities in these classes.
+    - An owner of a `video channel`, can not create entities in classes that belong exclusively to `music`. (If the `Member` also owns a `music channel` , the `Member` must use the `key(s)` associated with that channel)
+    - Some classes allow all `Content Creators` to create entities in this class
 2. For `Add Schema Support to Entity`, `Update Entity Properties`, `Remove Entity Properties`
   - If a class that is protected as in `1.`, the same rules applies to all these operations, and only `cg` has permissions.
-  - If there are no restriction for creating
+  - If there are no restrictions for creating
 
 ## Validation schemas
 
 The `validation schemas`, validates that the `JSON-schema` contains valid input for the [operation](#versioned-store-write-operations) it is trying to perform. In addition to being validated in the [versioned-store-js](https://github.com/Joystream/versioned-store-js) tool, a `JSON-schema` can also be validated against its appropriate `validation schemas` by the wonderful online tool [jsonschemavalidator.net](https://www.jsonschemavalidator.net/).
 
-Note that both of these checks will of not be able to catch errors in `JSON-schemas` that stem from input data conflicting with what is currently in the `versioned-store`, or consider [permissions](../README.md#permissions). They should instead be seen as the first line of defense.
+Note that both of these checks will not be able to catch errors in `JSON-schemas` that stem from input data conflicting with what is currently in the `versioned-store`, or consider [permissions](../README.md#permissions). They should instead be seen as the first line of defense.
 
 # Workflow
 
@@ -101,8 +101,8 @@ As both the `External` and `ExternalVec` is commented out, these are currently n
 
 - `Text*` means that a string of characters, or an array of strings, must be passed.
 - `Bool*` means that a boolean (true or false) value, or array of values, must be passed.
-- `Uint*` means that an unsigned integer value, or array or values, must be passed.
-- `Int*` means that a signed integer value, or array or values, must be passed.
+- `Uint*` means that an unsigned integer value, or array of values, must be passed.
+- `Int*` means that a signed integer value, or array of values, must be passed.
 - `Internal*` means that the value, or array of values, from another `class` must be passed.
 
 #### Text
