@@ -46,7 +46,7 @@ A `Property` is a concept that can be assigned to a class through a schema, as d
 - "type"
 - "required" (note that this does not need to be specified explicitly, but will default to `false`.)
 
-A new property must have a unique "name" in its class, but a different classes can have a property with the same name.
+A new property must have a unique "name" in its class, but different classes can have a property with the same name.
 Again, once added to a class via a schema, the property will get assigned an immutable `in_class_index`. As new schemas can choose which (if any) of the old properties to support, the property might have a different `in_schema_index` than in past and future schema versions.
 
 Properties have different `property types` depending on the `property value(s)` one wants to assign the [entities](#entities) in the class. These are:
