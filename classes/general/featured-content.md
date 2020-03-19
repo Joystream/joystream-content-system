@@ -3,7 +3,7 @@ Featured Content - Class
 
 Table of Contents
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -11,11 +11,13 @@ Table of Contents
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
-  - [Entities](#entities)
+      - [In Class index 0](#in-class-index-0)
+      - [In Class index 1](#in-class-index-1)
+      - [In Class index 2](#in-class-index-2)
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`6`
 
 ## Explanation
 To enforce a specific standard of tagging whether or not the content is `featured` or not across all content types.
@@ -34,13 +36,13 @@ It needs to be clear for the `publisher` whether their content is `featured` or 
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/featuredContent0.json)         | `Rome`           | `no` |
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/general/featuredContent0.json)         | `Rome`           |`true` |
 
 ## Properties
 ### Rome
-##### In Class index 0
+#### In Class index 0
 ```json
 {
   "name": "Top Video",
@@ -49,23 +51,23 @@ It needs to be clear for the `publisher` whether their content is `featured` or 
   "classId": "Video"
   }
 ```
-##### In Class index 1
+#### In Class index 1
 ```json
 {
   "name": "Featured Videos",
   "description": "Videos featured in the Video tab.",
   "type": "InternalVec",
-  "maxItems": 6,
+  "maxItems": 12,
   "classId": "Video"
 }
 ```
-##### In Class index 2
+#### In Class index 2
 ```json
 {
   "name": "Featured Albums",
   "description": "Music albums featured in the Music tab.",
   "type": "InternalVec",
-  "maxItems": 6,
+  "maxItems": 12,
   "classId": "Music Album"
 }
 

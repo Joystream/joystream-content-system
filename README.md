@@ -13,8 +13,7 @@ Table of Contents
 - [Overview of Classes](#overview-of-classes)
     - [General](#general)
   - [Type Specific](#type-specific)
-    - [Music](#music)
-    - [Videos](#videos)
+    - [Video](#video)
 <!-- TOC END -->
 
 # Overview
@@ -78,7 +77,9 @@ The table below shows an overview of the `property types` available in the versi
 | `Int16Vec`      | Array of 16-bit signed integer                  | `maxItems`                 |
 | `Int32Vec`      | Array of 32-bit signed integer                  | `maxItems`                 |
 | `Int64Vec`      | Array of 64-bit signed integer                  | `maxItems`                 |
-| `External`      | Reference outside of the Versioned Store        | NA                         |
+| `External` `*`    | Reference outside of the Versioned Store        | NA                         |
+
+- `*` To be added.
 
 ## Entities
 
@@ -110,38 +111,38 @@ This table contains all classes to be used for general purposes.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Media Object](classes/general/media-object.md)                  | `NA`  |    `v0`     | `cc`  | `cc`  |
-|[Language](classes/general/language.md)                          | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Content License](classes/general/content-license.md)            | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Publication Status](classes/general/publication-status.md)      | `NA`  |    `v0`     | `cg`  | `co`  |
-|[Curation Status](classes/general/curation-status.md)            | `NA`  |    `v0`     | `cg`  | `NA`  |
-|[Featured Content](classes/general/featured-content.md)          | `NA`  |    `v0`     | `cg`  | `NA`  |
+|[Media Object](classes/general/media-object.md)                  |  `1`  |    `v0`     | `cc`  | `cc`  |
+|[Language](classes/general/language.md)                          |  `2`  |    `v0`     | `cg`  | `cc`  |
+|[Content License](classes/general/content-license.md)            |  `3`  |    `v0`     | `cg`  | `cc`  |
+|[Publication Status](classes/general/publication-status.md)      |  `4`  |    `v0`     | `cg`  | `co`  |
+|[Curation Status](classes/general/curation-status.md)            |  `5`  |    `v0`     | `cg`  | `NA`  |
+|[Featured Content](classes/general/featured-content.md)          |  `6`  |    `v0`     | `cg`  | `NA`  |
 
 ## Type Specific
 
+### Video
+This table contains all classes to be used for specifically for videos.
+
+|     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
+|-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
+|[Video](classes/video/video.md)                                  |  `7`  |    `v0`     | `co`  | `co`  |
+|[Video Category](classes/video/video-category.md)                |  `8`  |    `v0`     | `cg`  | `cc`  |
+<!--
+|[Video Playlist Item](classes/videos/video-playlist-item.md)     | `NA`  |    `NA`     | `co`  | `cc`  |
+|[Video Playlist](classes/videos/video-playlist.md)               | `NA`  |    `NA`     | `co`  | `co`  |
+-->
+
+<!--
 ### Music
 This table contains all classes to be used for specifically for music.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Music Album](classes/music/music-album.md)                      | `NA`  |    `v0`     | `co`  | `NA`  |
-|[Music Track](classes/music/music-track.md)                      | `NA`  |    `v0`     | `co`  | `co`  |
-|[Music Genre](classes/music/music-genre.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Music Mood](classes/music/music-mood.md)                        | `NA`  |    `v0`     | `cg`  | `cc`  |
-|[Music Theme](classes/music/music-theme.md)                      | `NA`  |    `v0`     | `cg`  | `cc`  |
-<!--
+|[Music Album](classes/music/music-album.md)                      |  `9`  |    `v0`     | `co`  | `NA`  |
+|[Music Genre](classes/music/music-genre.md)                      | `10`  |    `v0`     | `cg`  | `cc`  |
+|[Music Mood](classes/music/music-mood.md)                        | `11`  |    `v0`     | `cg`  | `cc`  |
+|[Music Theme](classes/music/music-theme.md)                      | `12`  |    `v0`     | `cg`  | `cc`  |
+|[Music Track](classes/music/music-track.md)                      | `13`  |    `v0`     | `co`  | `co`  |
 |[Music Playlist Item](classes/music/music-playlist-item.md)      | `NA`  |    `NA`     | `co`  | `cc`  |
 |[Music Playlist](classes/music/music-playlist.md)                | `NA`  |    `NA`     | `co`  | `co`  |
--->
-
-### Videos
-This table contains all classes to be used for specifically for videos.
-
-|     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
-|-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
-|[Video](classes/videos/video.md)                                 | `NA`  |    `v0`     | `co`  | `co`  |
-|[Video Category](classes/videos/video-category.md)               | `NA`  |    `v0`     | `cg`  | `cc`  |
-<!--
-|[Video Playlist Item](classes/videos/video-playlist-item.md)     | `NA`  |    `NA`     | `co`  | `cc`  |
-|[Video Playlist](classes/videos/video-playlist.md)               | `NA`  |    `NA`     | `co`  | `co`  |
 -->

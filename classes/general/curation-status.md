@@ -3,7 +3,7 @@ Curation Status - Class
 
 Table of Content
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -15,13 +15,12 @@ Table of Content
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`5`
 
 ## Explanation
 To enforce a specific standard of tagging content where a `Content Curator` has performed an action.
 
 ### Protection
-
 It needs to be clear for the `publisher` why a `Content Curator` has made performed an action on an entity they published.
 
 ## CreateClass JSON-schema
@@ -34,20 +33,20 @@ It needs to be clear for the `publisher` why a `Content Curator` has made perfor
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/curationStatus0.json)          | `Rome`           | `no` |
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/general/curationStatus0.json)          | `Rome`           |`true` |
 
 ## Properties
 ### Rome
 ##### In Class index 0
 ```json
 {
-  "name": "Status",
+  "name": "Value",
   "description": "The curator publication status of the content in the content directory.",
   "required": true,
   "type": "Text",
-  "maxTextLength": 50
+  "maxTextLength": 255
 }
 ```
 

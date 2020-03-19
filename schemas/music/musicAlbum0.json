@@ -37,20 +37,23 @@
     },
     {
       "name": "Genre",
-      "description": "The genre of the album.",
-      "type": "Internal",
+      "description": "The genre(s) of the album.",
+      "type": "InternalVec",
+      "maxItems": 3,
       "classId": "Music Genre"
     },
     {
       "name": "Mood",
-      "description": "The mood of the album.",
-      "type": "Internal",
+      "description": "The mood(s) of the album.",
+      "type": "InternalVec",
+      "maxItems": 3,
       "classId": "Music Mood"
     },
     {
       "name": "Theme",
-      "description": "The theme of the album.",
-      "type": "Internal",
+      "description": "The theme(s) of the album.",
+      "type": "InternalVec",
+      "maxItems": 3,
       "classId": "Music Theme"
     },
     {
@@ -68,8 +71,8 @@
       "classId": "Language"
     },
     {
-      "name": "Link",
-      "description": "Links to the artist or album site or social media pages.",
+      "name": "Links",
+      "description": "Links to the artist or album site, or social media pages.",
       "type": "TextVec",
       "maxItems": 5,
       "maxTextLength": 255
@@ -127,7 +130,7 @@
     },
     {
       "name": "Channel Id",
-      "description": "Id of the channel this music album is published to.",
+      "description": "Id of the channel this album is published under.",
       "type": "Uint64"
     }
   ]

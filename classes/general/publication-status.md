@@ -3,7 +3,7 @@ Publication Status - Class
 
 Table of Content
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -11,11 +11,12 @@ Table of Content
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
+      - [In Class index 0](#in-class-index-0)
   - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`4`
 
 ## Explanation
 To enforce a specific standard of tagging whether or not the `publisher` of the content want to content to be accessible or not across all content types.
@@ -34,16 +35,16 @@ It needs to be clear for the `publisher` whether or not their content is availab
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/publicationStatus0.json)       | `Rome`           | `no` |
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/general/publicationStatus0.json)       | `Rome`           |`true` |
 
 ## Properties
 ### Rome
-##### In Class index 0
+#### In Class index 0
 ```json
 {
-  "name": "Status",
+  "name": "Value",
   "description": "The publication status of the content in the content directory.",
   "required": true,
   "type": "Text",

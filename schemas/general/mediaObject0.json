@@ -3,10 +3,15 @@
   "newProperties": [
     {
       "name": "Value",
-      "description": "ContentId of object in the data directory. Hex format expected.",
+      "description": "ContentId of object in the data directory",
       "type": "Text",
       "required": true,
-      "maxTextLength": 66
+      "maxTextLength": 48
+    },
+    {
+      "name": "Channel Id",
+      "description": "Id of the channel this media object is published under.",
+      "type": "Uint64"
     }
   ]
 }

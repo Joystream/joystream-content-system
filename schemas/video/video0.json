@@ -42,8 +42,8 @@
       "classId": "Video Category"
     },
     {
-      "name": "Link",
-      "description": "A link to the creators page.",
+      "name": "Links",
+      "description": "Links to the creators pages.",
       "type": "TextVec",
       "maxItems": 5,
       "maxTextLength": 255
@@ -88,7 +88,7 @@
     },
     {
       "name": "Channel Id",
-      "description": "Id of the channel this video is published to.",
+      "description": "Id of the channel this video is published under.",
       "type": "Uint64"
     }
   ]

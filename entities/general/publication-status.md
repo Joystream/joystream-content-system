@@ -11,7 +11,7 @@ Table of Content
 ## Class and Schema
 
 - Class Name: ["Publication Status"](../../classes/general/publication-status.md)
-- Class Id : `NA`
+- Class Id : `4`
 - Supported schema Id(s): `0`
 
 ## Entities
@@ -19,10 +19,10 @@ Table of Content
 Entities are protected. Entities are protected. All have [property type](../../README.md#property-types) `Text`.
 The table below lists all available entities:
 
-| Value         | Explanation                          |
-|---------------|--------------------------------------|
-| "Unpublished" | Not published (eg. not discoverable) |
-| "Published"   | Published (eg. discoverable)         |
+| Entity ID | Value    | Explanation                             |
+|-----------|----------|-----------------------------------------|
+| 185       |"Public"  | Published (eg. discoverable)            |
+| 186       |"Unlisted"| Not published (eg. not discoverable)    |
 
 **Note:**
 Although this could easily be replaced property type `Bool`, it was decided to use `Text` so that additional values can be added to later schemas with backwards compatibility.

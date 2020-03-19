@@ -3,7 +3,7 @@ Language - Class
 
 Table of Content
 ----------------
-<!-- TOC START min:1 max:3 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:4 link:true asterisk:false update:true -->
   - [ClassID](#classid)
   - [Explanation](#explanation)
     - [Protection](#protection)
@@ -11,11 +11,12 @@ Table of Content
   - [Schemas](#schemas)
   - [Properties](#properties)
     - [Rome](#rome)
+      - [In Class index 0](#in-class-index-0)
   - [Entities](#entities)
 <!-- TOC END -->
 
 ## ClassID
-`NA`
+`2`
 
 ## Explanation
 To enforce a specific standard of tagging languages across all content types.
@@ -46,16 +47,16 @@ This would make discovery more difficult, and would lead to thousands of entitie
 
 ## Schemas
 
-|Version and Link                                           |   Testnet(s)     |Active|
-|:---------------------------------------------------------:|------------------|:----:|
-| [v0](../../schemas/general/language0.json)                | `Rome`           | `no` |
+|Version and Link                                           |   Testnet(s)     |Active |
+|:---------------------------------------------------------:|------------------|:-----:|
+| [v0](../../schemas/general/language0.json)                | `Rome`           |`true` |
 
 ## Properties
 ### Rome
-##### In Class index 0
+#### In Class index 0
 ```json
 {
-  "name": "Language Code",
+  "name": "Value",
   "description": "Language code following the ISO 639-1 two letter standard.",
   "type": "Text",
   "required": true,
