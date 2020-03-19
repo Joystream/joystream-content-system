@@ -59,7 +59,7 @@ The following workflow assumes the user has the correct permissions, and uses th
 
 ## Property Types
 
-When a `property` is created, it has to be assign a `type`. The code snipped below is taken from the current [implementation](https://github.com/Joystream/substrate-versioned-store/blob/master/src/lib.rs):
+When a `property` is created, it has to be assigned a `type`. The code snipped below is taken from the current [implementation](https://github.com/Joystream/substrate-versioned-store/blob/master/src/lib.rs):
 
 ```rust
     // Single value:
