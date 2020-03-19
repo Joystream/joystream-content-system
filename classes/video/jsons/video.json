@@ -1,0 +1,4 @@
+{
+  "name": "Video",
+  "description": "Class for general videos not assignable to a more specific video content type."
+}
