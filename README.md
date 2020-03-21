@@ -20,9 +20,9 @@ Table of Contents
 
 This repo contains information and resources for using the Joystream content system.
 
-The design centers around two key concepts, [classes](#classes) and [entities](#entities). A `Class` represents a type of `entity` family, and it may have sequence of [schemas](#schemas) associated with it, which defines different ways an entity of the given class may be encoded. A schema can express familiar constraints around what [properties](#properties) an entity must have in order to submit to the schema. A property is defined by some data type requirements, whether it is optional or not, and some metadata. There are a variety of [property types](#property-types). Importantly, one special data type is called the `Internal` (or `InternalVec`), which requires an identifier for some entity of a class defined int he store. This is how data is linked. An entity should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
+The design centers around two key concepts, [classes](#classes) and [entities](#entities). A `Class` represents a type of `entity` family, and it may have a sequence of [schemas](#schemas) associated with it, which defines different ways an entity of the given class may be encoded. A schema can express familiar constraints around what [properties](#properties) an entity must have in order to submit to the schema. A property is defined by some data type requirements, whether it is optional or not, and some metadata. There are a variety of [property types](#property-types). Importantly, one special data type is called the `Internal` (or `InternalVec`), which requires an identifier for some entity of a class defined int he store. This is how data is linked. An entity should be understood as some persistent instance of a class that may exist in one or more different versions simultaneously.
 
-These concepts are explained in more details below, and the [resources](resources) section contains further documentation, workflow and examples.
+These concepts are explained in more detail below, and the [resources](resources) section contains further documentation, workflow, and examples.
 
 # Concepts
 
@@ -46,7 +46,7 @@ A `Property` is a concept that can be assigned to a class through a schema, as d
 - "type"
 - "required" (note that this does not need to be specified explicitly, but will default to `false`.)
 
-A new property must have a unique "name" in its class, but a different classes can have a property with the same name.
+A new property must have a unique "name" in its class, but different classes can have a property with the same name.
 Again, once added to a class via a schema, the property will get assigned an immutable `in_class_index`. As new schemas can choose which (if any) of the old properties to support, the property might have a different `in_schema_index` than in past and future schema versions.
 
 Properties have different `property types` depending on the `property value(s)` one wants to assign the [entities](#entities) in the class. These are:
@@ -87,7 +87,7 @@ An `Entity` represents a singular existence of a particular Class, but does not 
 
 When a new `Entity` is created, it contains no information. Once added to the [versioned store](https://github.com/Joystream/substrate-versioned-store-module), it returns a unique global identifier in the database, known as the `enitityId`. This identifier is an integer, counting from `1`. Despite having a global identity, it is still associated with a single `classId`.
 
-As the entity itself holds no data, one has to add schema support to it, and assign values to the properties available in the `in_schema_index`. These values must be in line with the property type, and its restrictions. If the property is "required", it must be populated. Properties in the `in_schema_index` that is not given a value will by default be given a `null` value. Note that properties properties that exists in the class (`in_class_index`), but not in the schema (`in_schema_index`) can not be populated. An entity can exist in multiple schemas simultaneously, but can not contain different values across `in_class_index` properties. Unlike a classes, schemas and properties, and entity can be updated, and be assigned new values.
+As the entity itself holds no data, one has to add schema support to it, and assign values to the properties available in the `in_schema_index`. These values must be in line with the property type, and its restrictions. If the property is "required", it must be populated. Properties in the `in_schema_index` that is not given a value will by default be given a `null` value. Note that properties that exist in the class (`in_class_index`), but not in the schema (`in_schema_index`) can not be populated. An entity can exist in multiple schemas simultaneously, but can not contain different values across `in_class_index` properties. Unlike classes, schemas, and properties, and entity can be updated, and be assigned new values.
 
 ## Permissions
 
@@ -101,7 +101,7 @@ The "Write" and "Read" column for each `Class` should be understood as follows:
 
 # Overview of Classes
 
-The tables below contains an overview of all classes available in the Joystream Content System. Click the name of the name of the class for a more verbose explanation.
+The tables below contains an overview of all classes available in the Joystream Content System. Click the name of the class for a more verbose explanation.
 
 **Note: All `classes` where the "Valid Schemas" show `NA` means that it will not be included at launch.**
 
@@ -121,7 +121,7 @@ This table contains all classes to be used for general purposes.
 ## Type Specific
 
 ### Video
-This table contains all classes to be used for specifically for videos.
+This table contains all classes to be used specifically for videos.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
@@ -134,7 +134,7 @@ This table contains all classes to be used for specifically for videos.
 
 <!--
 ### Music
-This table contains all classes to be used for specifically for music.
+This table contains all classes to be used specifically for music.
 
 |     Name and Information                                        |ClassId|Valid Schemas| Write | Read  |
 |-----------------------------------------------------------------|:-----:|-------------|:-----:|:-----:|
